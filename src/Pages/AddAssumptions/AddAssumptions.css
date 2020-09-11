@@ -1,0 +1,6 @@
+.add-assumptions {
+    display: grid;
+    grid-template-rows: minmax(90vh, min-content);
+   /* grid-template-columns: minmax(0rem,1fr) minmax(min-content,120rem) minmax(0rem,1fr); */
+   /* background-color: salmon; */
+}

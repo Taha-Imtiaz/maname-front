@@ -1,0 +1,7 @@
+.taglist {
+      display: grid;
+      grid-template-rows: minmax(15vh,min-content)
+    /* background-color: royalblue; */
+    /* grid-template-columns: 80rem; */
+    
+}

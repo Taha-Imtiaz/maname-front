@@ -1,0 +1,52 @@
+.grid { 
+    display: grid;
+    /* background-color: gold; */
+    grid-template-columns:  1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+    align-content: start; 
+     align-items: center;
+     margin: 0.5rem 0;
+    }
+  .grid article {
+    border: 1px solid #00000029;
+    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+    margin: 0.6rem 0;
+    /* padding-left: 1rem; */
+  }
+  .grid > article img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+  }
+  .text {
+    padding: 0 20px 20px;
+    font-family: "Nunito";
+    font-size: 1.5rem;
+    color: #111111;
+  }
+  .text article p {
+    font-family: "Nunito";
+    font-weight: 400;
+    font-size: 1.2rem;
+    
+    padding-left: 1rem;
+  }
+  .text article {
+    margin: 1rem 0;
+  }
+  
+  .thumbs {
+      display: grid;
+      grid-template-columns: 1fr 80fr 1fr;
+      grid-template-areas: "like-icon . dislike-icon";
+    
+  }
+  .like-icon {
+      grid-area: like-icon;
+  }
+  
+  .dislike-icon {
+      grid-area: dislike-icon;
+  }
+  

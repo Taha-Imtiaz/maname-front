@@ -1,0 +1,59 @@
+.posts-container {
+    display: grid;
+    grid-template-rows: minmax(90vh,min-content);
+    grid-template-columns: minmax(0px,1fr) minmax(500px,min-content) minmax(min-content,15rem) minmax(0px,1fr);
+    grid-template-areas: ". posts post-btn .";
+   /* background-color: red; */
+}
+.posts {
+    grid-area: posts;
+    display: grid;
+    grid-template-rows: min-content;
+    grid-template-columns: 1fr;
+    /* grid-gap: 2px; */
+    justify-content: center;
+    /* background-color: tomato; */
+}
+.postbtn {
+    grid-area: post-btn;
+   
+}
+.postbtn h1 {
+    background-color: #02C396;
+    padding: 1rem;
+    margin: 1rem;
+    color: #FFFFFF;
+    font-family: "Roboto";
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 0.25rem;
+}
+
+
+  @media only screen and (max-width:650px) {
+    .posts-container {
+        display: grid;
+        grid-template-rows: minmax(80vh,min-content) 10vh;
+        grid-template-columns: minmax(1rem,1fr) minmax(280px,min-content)  minmax(1rem,1fr);
+        grid-template-areas: ". posts . "
+                                ".  post-btn-icon .";
+
+       
+    }
+    .postbtnicon {
+        width: 70px;
+    height: 70px;
+    background: #02C396;
+    border-radius: 50%;
+    position: fixed;
+    left: calc(100% - 90px);
+    top: calc(100% - 90px); 
+    color: white;
+    cursor: pointer;
+    }
+    .postbtn {
+        display: none;
+    }
+  }
+   

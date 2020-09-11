@@ -1,0 +1,53 @@
+.profile-form-container {
+    display: grid;
+    grid-template-rows: 20vh;
+    grid-template-columns: 20fr 60fr 20fr;
+    grid-template-areas: ". form-field .";
+    /* background-color: rosybrown; */
+}
+.form-field {
+    grid-area: form-field;
+    height: 20vh;
+    /* background-color: purple; */
+    display: grid;
+    grid-template-rows: repeat(2, 50fr);
+    grid-template-columns: repeat(2, 50fr);
+    grid-template-areas: "name email"
+                        "credit membership-date";
+ grid-gap: 1.5rem ;
+}
+.name {
+    grid-area: name;
+    /* background-color: sandybrown; */
+    
+}
+.email {
+    grid-area: email;
+    transform: translateY(1.3rem);
+    /* background-color: rgb(128, 49, 49); */
+}
+.credit {
+    grid-area: credit;
+    /* background-color: springgreen; */
+}
+.membership-date {
+    grid-area: membership-date;
+    /* background-color: steelblue; */
+}
+.form-field input {
+width: 30rem;
+outline: none;
+border:1px solid #a8a8a8;
+font-family: "Nunito";
+text-indent:10px;
+
+}
+.form-field label {
+    transform: translateY(-0.3rem);
+    color: #111111;
+}
+@media only screen and (max-width: 800px) {
+    .form-field input {
+       width: 20rem;
+    }
+}

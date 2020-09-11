@@ -1,0 +1,35 @@
+.login-icons {
+    /* height: 15vh; */
+    display: grid;
+    grid-template-rows: 10vh ;
+     grid-template-columns: 1fr;
+    grid-template-areas: "icons"
+                        
+}
+.icons {
+    grid-area: icons;
+    display: grid;
+    grid-template-rows: 10vh;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-areas: ". facebook google  .";
+  justify-content: space-between;
+}
+.circle {
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 50%;
+    background:  #f1efef;
+}
+.facebook {
+    grid-area: facebook;
+    color: #3b5998;
+    font-size: 3rem;
+
+}
+.google {
+    grid-area: google;  
+    /* border: none; */
+}
+.icons img {
+    border: none;
+}

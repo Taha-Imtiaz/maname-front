@@ -1,0 +1,13 @@
+.accountnotexist {
+    display: grid;
+    grid-template-rows: 5vh;
+    grid-template-columns: 1fr;
+    color: #02C396;
+    font-family: "Nunito";
+    font-size: 1.5rem;
+    
+    }
+    .accountnotexist span {
+        font-size: 1.3rem;
+    }
+    

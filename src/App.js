@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import LoginForm from './Pages/LoginForm/LoginForm';
+import SignupForm from './Pages/SignupForm/SignupForm';
+import TimeLine from './Pages/TimeLine/TimeLine';
+import Navbar from './components/Navbar/Navbar';
+import UserProfile from './Pages/UserProfile/UserProfile';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import AddAssumptions from './Pages/AddAssumptions/AddAssumptions';
+
+
+
 
 function App() {
+  var [login, setLogin] = useState(true)
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
+        <Navbar login = {login}/>
+    
+      <div className="pageContent">
+      <Switch>
+        <Route path = "/login" component ={LoginForm}/>
+        <Route path = "/signup" component ={SignupForm}/>
+        
+       <Route path = "/userTimeline" component = {TimeLine} />
+       <Route path = "/profile" component = {UserProfile}/>
+       <Route path = "/addassumption" component = {AddAssumptions}/>
+       <Redirect to = "/" exact to ="/login"/>
+    
+        </Switch>
+    </div>
     </div>
   );
 }

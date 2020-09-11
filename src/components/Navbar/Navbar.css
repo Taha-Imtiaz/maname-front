@@ -1,0 +1,215 @@
+/* .navbar-container {
+    height: 10vh;
+    display: grid;
+    grid-template-rows: 10vh;
+    grid-template-columns: 10fr 58fr 20fr 10fr 2fr;
+    grid-template-areas: ". logo nav-items loginbtn  .";
+    background-color: #FFFFFF;
+    font-family: "Nunito";
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #000;
+    border: 1px solid #00000014;
+    position: relative;
+}
+
+.logo {
+    grid-area: logo;
+    display: flex;
+    align-items: center;
+}
+.nav-items  {
+grid-area: nav-items;
+display: grid;
+grid-template-columns: repeat(2,10fr);
+grid-template-areas: "homebtn userprofilebtn";
+}
+.homebtn  {
+    grid-area:homebtn;
+  
+    position: relative;
+}
+.userprofilebtn {
+    grid-area: userprofilebtn;
+    position: relative;
+}
+.loginbtn {
+    grid-area: loginbtn;
+    background-color: #02C396;
+    color: #FFFFFF;
+    margin: 1.5rem ;
+    border-radius: 0.2rem;
+}
+.homebtn::after,.userprofilebtn::after {
+    bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #fff;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+.homebtn:hover:after,.userprofilebtn:hover:after { 
+    width: 100%; 
+    left: 0; 
+    background-color: #02C396;
+    transition: all 300ms ease-in-out;
+    transform-origin: center;
+  }
+
+  .hamburger-menu {
+    
+    position: absolute;
+    top: 3vh;
+    left: 87vw;
+    font-size: 1.6rem;
+    margin-right: 2rem;
+    cursor: pointer;
+    display: none;
+   }
+  
+  @media only screen and (max-width:800px) {
+    .loginbtn {
+      margin: 1.4rem;
+    } */
+    /* .navbar {
+      grid-area: navbar;
+      display: grid;
+      grid-template-rows: 10vh 90vh;
+      grid-template-columns: 100vw;
+      grid-template-areas:
+        "nav"
+        "content";
+      background-color: #000;
+    }
+    .nav {
+      display: grid;
+      grid-area: nav;
+      position: relative;
+      grid-template-rows: 10vh 90vh;
+      grid-template-columns: 80fr repeat(2,10fr);
+      grid-template-areas:  " logo  hamburger-menu loginbtn"
+                          " nav-items . nav-items";
+    }
+    .nav-items {
+      grid-area: nav-items;
+      background-color: #000;
+      width: 100vw;
+      height: calc(100vh - 10vh);
+      position: absolute;
+      transition: 1s;
+      left: -100%;
+    }
+    .nav-items div {
+      display: grid;
+      height: 10vh;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid rgb(39, 39, 39);
+    }
+    .nav .active {
+      left: 0;
+    }
+  
+    .nav-items div:hover {
+      background-color: #ffc107;
+      border-bottom: 2px solid rgb(39, 39, 39);
+    }
+    .nav-items a:hover {
+      border: transparent;
+    }
+  
+    .nav-items .active {
+      background-color: #ffc107;
+      transition: background 450ms ease-in-out;
+      border: transparent;
+      border-bottom: 2px solid rgb(39, 39, 39);
+      padding: 1rem;
+      font-size: 1.6rem;
+    }
+    .hamburger-menu {
+      grid-area: hamburger-menu;
+      color: white;
+      font-size: 2.4rem;
+      margin-right: 1rem;
+    }
+    .hamburger-menu:hover {
+      border: 1px solid white;
+      padding: 0.2rem 1.5rem;
+    } */
+    /* .hamburger-menu {
+      display: block;
+      position: fixed;
+    } */
+    /* .nav-items  {
+     display: block;
+     
+     width:90vw;
+     height: calc(100vh - 10vh);
+     background-color: black;
+     top: 10vh;
+     left: -100%;
+     text-align: center;
+    }
+    .nav-items div {
+      display: grid;
+      margin: 1rem;
+    } */
+  /* }
+  @media only screen and (max-width:600px) {
+    .loginbtn {
+      margin: 1.2rem;
+    }
+  }
+ */
+
+  /* nav {
+    display: grid;
+    grid-template-rows: 10vh;
+  } */
+  nav {
+    /* color: #000; */
+    font-size: 1.5rem;
+  }
+  .navbar-nav li {
+    margin: 1rem;
+    font-weight: 700;
+    font-family: "Nunito";
+    font-size: 1.7rem;
+   
+    text-align: center;
+
+  }
+  .navbar-brand {
+   padding-left: 5rem;
+   font-size: 2rem;
+   font-family: "Nunito";
+   text-transform: uppercase;
+  }
+  .nav-link {
+    transform: translateY(0.6rem);
+  }
+  
+ .nav-link .loginbtn {
+    grid-area: loginbtn;
+    background-color: #02C396;
+    border-radius: 0.3em;
+    padding: 0.5rem 2rem;
+    color: #FFFFFF;
+    outline: none;
+    transform: translateY(-0.6rem);
+    /* border: 1px solid #757070; */
+    
+   /* padding: 0.8rem 2.4rem; */
+    border-radius: 0.2rem;
+}
+.nav-link {
+  color:black !important;
+  text-align: center;
+
+}
+.navbar-expand-md {
+  background-color: #00000014 !important;
+}

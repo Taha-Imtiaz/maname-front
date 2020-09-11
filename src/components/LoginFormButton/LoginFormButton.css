@@ -1,0 +1,17 @@
+.login-button {
+   
+    display: grid;
+    grid-template-rows: 8vh;
+    grid-template-columns: 1fr;
+ grid-template-areas:  "alternate-signup";
+
+/* background-color: saddlebrown; */
+} 
+.alternate-signup {
+   
+    height: 8vh;
+    grid-area: alternate-signup;
+    transform: translateY(-4rem);
+    font-family: 'Nunito';
+     color: #757070;
+}

@@ -1,0 +1,4 @@
+.taglistitem {
+    display: grid;
+    grid-template-columns: repeat(autofit, minmax(min-content, 500px));
+}
