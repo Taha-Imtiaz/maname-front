@@ -93,7 +93,7 @@ class AddAssumptionForm extends Component {
       owner: owner
     };
     addAssumptions(assumptionObj, () => {
-      history.push("/userTimeline");
+      history.push("/timeline");
     });
     console.log(assumptionObj)
   };
@@ -155,7 +155,7 @@ class AddAssumptionForm extends Component {
                   placeholder="Add a tag"
                 />
               </div>
-              <div className="tagsAdded flex">
+              <div className="tagsAdded">
                 <TagsList
                   labels={labels}
                   handleTagsDelete={this.handleTagsDelete}

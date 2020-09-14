@@ -29,7 +29,7 @@ handleFormSubmit = (e) => {
   }
 
  registerUser(userObj, () => {
-  history.push("/usertimeline")
+  history.push("/timeline")
 })
 }
 

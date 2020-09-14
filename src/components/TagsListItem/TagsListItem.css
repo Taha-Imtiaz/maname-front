@@ -1,4 +1,6 @@
 .taglistitem {
     display: grid;
-    grid-template-columns: repeat(autofit, minmax(min-content, 500px));
+    grid-template-rows: 50rem;
+    /* grid-template-columns:  min-content; */
+   
 }

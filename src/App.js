@@ -24,10 +24,10 @@ function App() {
         <Route path = "/login" component ={LoginForm}/>
         <Route path = "/signup" component ={SignupForm}/>
         
-       <Route path = "/userTimeline" component = {TimeLine} />
+       <Route path = "/timeline" component = {TimeLine} />
        <Route path = "/profile" component = {UserProfile}/>
        <Route path = "/addassumption" component = {AddAssumptions}/>
-       <Redirect to = "/" exact to ="/login"/>
+       <Redirect to = "/" exact to ="/timeline"/>
     
         </Switch>
     </div>

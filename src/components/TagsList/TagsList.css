@@ -1,7 +1,11 @@
 .taglist {
       display: grid;
-      grid-template-rows: minmax(15vh,min-content)
-    /* background-color: royalblue; */
-    /* grid-template-columns: 80rem; */
+      grid-template-columns:  repeat(auto-fit,minmax(min-content,50rem));
+      grid-template-rows: repeat(auto-fit,minmax(min-content,50rem));
+      grid-column-gap: 20px;
+      grid-row-gap: 10px;
+      align-content: start; 
+       align-items: flex-start;
+       margin: 0.5rem 0
     
 }

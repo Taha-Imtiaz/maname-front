@@ -6,8 +6,8 @@ import { withRouter } from 'react-router-dom';
 class LoginFormFields extends Component {
 state = {
    username: '',
-   
-    password: ''
+    password: '',
+    provider:"MAIL"
     
 }
 handleInput = (e) => {
@@ -19,16 +19,17 @@ handleInput = (e) => {
     })
 }
 handleFormSubmit = (e) => {
-  var {username, password} = this.state
+  var {username, password,provider} = this.state
   var {history} = this.props
   e.preventDefault();
   var userObj = {
     username: username,
-    password: password
+    password: password,
+    provider: provider
   }
 
  loginUser(userObj, () => {
-  history.push("/usertimeline")
+  history.push("/timeline")
 })
 }
 

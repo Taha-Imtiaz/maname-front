@@ -71,7 +71,7 @@ export var getAssumptions = async () => {
 export var getUser = async (userId) => {
     try {
        var response = await axios.get(`http://localhost:3000/api/get-data/${userId}`)
-       console.log(response)
+       return response
     } catch (error) {
     console.log(error)    
     }
