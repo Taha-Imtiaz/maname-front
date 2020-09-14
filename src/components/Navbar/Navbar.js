@@ -19,7 +19,7 @@ const Navbar = (props) => {
                 {login && (
                     <React.Fragment>
                     <li>
-                        <Link className="nav-link flex" to="/userTimeline">
+                        <Link className="nav-link flex" to="/timeline">
                             Home
                         </Link>
                     </li>

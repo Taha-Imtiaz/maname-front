@@ -5,36 +5,14 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 import { getAssumptions, getUserAssumptions } from '../../API/axios'
+import UserPosts from '../UserPosts/UserPosts'
 
 
 class Posts extends Component {
-    state = {
-        assumption: []
-    }
-
-    componentDidMount = () => {
-        var sessionObj =   JSON.parse(sessionStorage.getItem("responseObj"))
-    if(sessionObj) {
-        var userId = sessionObj.data._id;
-        console.log(userId)
-        getUserAssumptions(userId).then((res)=> {
-            this.setState({
-                assumption: res.data
-            }) 
-            // console.log(res)
-        })
-    } else {
-        getAssumptions().then((res) => {
-            this.setState({
-                assumption: res.data
-            })
-        })
-    }
-     
-}
+  
 
     render () {
-var {assumption} = this.state
+
 // console.log(assumption)
     return (
         <div>
@@ -44,13 +22,8 @@ var {assumption} = this.state
       </Link>
         </div>
         <div className = "posts-container">
-            <div className="posts flex">
-              {
-                assumption.map((assumption) =>{
-              return    <PostItem assumption = {assumption} key = {assumption._id}/>
-                })
-               
-              }
+            <div className="posts">
+            <UserPosts/>
             </div>
             <div className="postbtn">
                 <Link to = "/addassumption" style = {{textDecoration:"none"}}>

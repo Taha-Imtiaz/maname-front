@@ -106,9 +106,9 @@
 }
 .tagsAdded {
     grid-area: tagsAdded;
-   background-color: salmon;
+   /* background-color: salmon; */
    display: grid;
-   grid-template-rows: min-content;
+   grid-template-rows: minmax(min-content,15vh);
    grid-template-columns: repeat(auto-fit,50rem)
     /* min-width: 50rem; */
   

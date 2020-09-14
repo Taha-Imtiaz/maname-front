@@ -1,9 +1,7 @@
-import React,{useEffect,useState} from "react";
+import React from "react";
 import "./PostItem.css";
-import image1 from "../../images/image1.jpg";
 import Like from "../Like/Like";
 import DisLike from "../DisLike/DisLike";
-import { getUserAssumptions, getAssumptions } from "../../API/axios";
 
 
 

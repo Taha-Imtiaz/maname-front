@@ -1,19 +1,42 @@
 import React, { Component } from 'react'
 import "./ProfileForm.css"
 
+ var sessionObj = null
  class ProfileForm extends Component {
+    
+
+     componentDidMount = () => {
+       
+            sessionObj = JSON.parse(sessionStorage.getItem("responseObj"))
+            if(sessionObj) {
+           var userId = sessionObj.data._id;
+           console.log(sessionObj.data)
+           this.setState({
+               name: sessionObj.data.username,
+               email:sessionObj.data.email,
+               credits: sessionObj.data.credits,
+               memberSince:sessionObj.data.memberSince
+
+           })
+        }     
+     };
      state = {
-         name:''
-     }
+        name:'',
+        email:'',
+        credits:'',
+        memberSince:''
+    }
+     
      handleFormInput = (e) => {
-         var {name, value} =e.target;
-        //  console.log(value)
-         this.setState({
-             [name]:value
-         })
+         var {name,value} =e.target;
+        this.setState({
+            [name]:value
+        })
+         
+      
      }
     render() {
-        var {name} = this.state;
+        var {name,email,credits,memberSince} = this.state;
 
         return (
             <div className = "profile-form-container">
@@ -27,13 +50,13 @@ import "./ProfileForm.css"
                        </div>
 
                        <div className="email flex" style = {{flexFlow:"column",alignItems:"start"}} >
-                          <label className = "flex">test1@gmail.com</label>
+                          <label className = "flex">{email}</label>
                        </div>
                        <div className = "credit flex" style = {{flexFlow:"column",alignItems:"start"}}>
-                           <label className = "flex" htmlFor="">3000</label>
+                           <label className = "flex" htmlFor="">{credits}</label>
                        </div>
                        <div className = "membership-date flex" style = {{flexFlow:"column",alignItems:"start"}}>
-                          <label className = "flex" htmlFor="">20-Sep-2020</label>
+                          <label className = "flex" htmlFor="">{memberSince.split("T")[0]}</label>
                            
                        </div>
                       

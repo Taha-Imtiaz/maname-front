@@ -35,7 +35,7 @@
     .posts-container {
         display: grid;
         grid-template-rows: minmax(80vh,min-content) 10vh;
-        grid-template-columns: minmax(1rem,1fr) minmax(280px,min-content)  minmax(1rem,1fr);
+        grid-template-columns: minmax(1rem,1fr) minmax(400px,min-content)  minmax(1rem,1fr);
         grid-template-areas: ". posts . "
                                 ".  post-btn-icon .";
 
@@ -56,4 +56,14 @@
         display: none;
     }
   }
-   
+  @media only screen and (max-width:420px) {
+    .posts-container {
+        display: grid;
+        grid-template-rows: minmax(80vh,min-content) 10vh;
+        grid-template-columns: minmax(1rem,1fr) minmax(300px,min-content)  minmax(1rem,1fr);
+        grid-template-areas: ". posts . "
+                                ".  post-btn-icon .";
+
+       
+    }
+}

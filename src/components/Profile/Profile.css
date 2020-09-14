@@ -9,7 +9,7 @@
     grid-area: profile;
     background-color: #F8F8F8;
     display: grid;
-    grid-template-rows: 55vh 35vh;
+    grid-template-rows: minmax(55vh,min-content) minmax(35vh,min-content);
     grid-template-columns: 1fr;
     
 
@@ -86,11 +86,14 @@
 .assumptions {
     
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+    flex-flow: row;
+    grid-template-rows: min-content;
     grid-column-gap: 2rem;
     margin: 0 1rem;
+    /* background-color: salmon; */
 }
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 800px) {
     .assumptions {
     
         display: grid;
