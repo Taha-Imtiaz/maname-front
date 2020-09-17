@@ -1,5 +1,5 @@
 .login-heading-container {
-    height: 15vh;
+    grid-template-rows: 15vh;
     /* background: red; */
 }
 .login-heading-container h1 {

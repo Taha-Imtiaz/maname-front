@@ -4,7 +4,7 @@ const LoginFormButton = () => {
     return (
         <div className = "login-button">
           
-           <div className="alternate-signup flex">
+           <div className="alternateAuth flex">
                or signup with
            </div>
         </div>

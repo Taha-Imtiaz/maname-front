@@ -3,6 +3,7 @@
     display: grid;
     grid-template-rows: 10vh ;
      grid-template-columns: 1fr;
+     /* background-color: palevioletred; */
     grid-template-areas: "icons"
                         
 }
@@ -32,4 +33,26 @@
 }
 .icons img {
     border: none;
+}
+@media only screen and (max-width: 800px) {
+    .icons {
+        grid-area: icons;
+        display: grid;
+        grid-template-rows: 15vh;
+        grid-template-columns: 35fr repeat(2,15fr) 35fr;
+        grid-template-areas: ". facebook google  .";
+      justify-content: space-around;
+    
+    }
+}
+@media only screen and (max-width: 450px) {
+    .icons {
+        grid-area: icons;
+        display: grid;
+        grid-template-rows: 15vh;
+        grid-template-columns: 28fr repeat(2,22fr) 28fr;
+        grid-template-areas: ". facebook google  .";
+      justify-content: space-around;
+    
+    }
 }

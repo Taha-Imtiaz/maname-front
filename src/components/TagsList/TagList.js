@@ -7,7 +7,7 @@ const TagsList = (props) => {
   
   return (
       
-        <div style = {{display:"flex"}} className = "taglist">
+        <div  className = "taglist">
           { labels.map((label)=>
           <TagsListItem label = {label} key = {label.tagId}
          handleTagsDelete = {handleTagsDelete} />)}

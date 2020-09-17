@@ -1,4 +1,4 @@
-.assumption-form-container {
+.assumptionFormContainer {
     display: grid;
     grid-template-rows: 15vh 75vh;
     grid-template-columns: 1fr;
@@ -8,20 +8,21 @@
    
     /* background-color: #757070; */
 }
-.assumption-form {
+.assumptionForm {
     grid-area: assumption-form;
     display: grid;
     /* height: 75vh; */
     grid-template-rows: minmax(75vh,min-content);
-    grid-template-columns: 25fr 50fr 25fr;
+    grid-template-columns: 30fr 40fr 30fr;
     grid-template-areas: ". assumption-form-fields .";
     /* background-color: red; */
 }
-.assumption-form-fields {
+.assumptionFormFields {
     grid-area: assumption-form-fields;
-    /* height: 50vh; */
+    /* background-color: aqua; */
+    /* height: 50vh;
     display: grid;
-    grid-template-rows:   repeat(5,10vh) 15vh 10vh;
+    grid-template-rows:   repeat(5,minmax(10vh,min-content)) minmax(15vh,min-content) minmax(10vh,min-content);
     grid-template-columns: 1fr;
     grid-template-areas: "assumption-form-heading "
                             "title"
@@ -29,17 +30,35 @@
                             "detailDescription"
                             "tags"
                              "tagsAdded"
-                            "add-form-btn"
-                           ;
- /* background-color: #C9C4C4; */
+                            "add-form-btn" ;
+  */
 }
-.assumption-form-heading   {
-    grid-area: assumption-form-heading;
+.flex {
     display: flex;
     justify-content: center;
-    /* background-color: #02C396; */
     align-items: center;
-    /* text-align: center; */
+}
+.addBtn {
+    background-color: #02C396;
+    /* position: absolute; */
+      margin: 2rem 0;
+    border-radius: 0.3rem;
+    font-family: 'Nunito';
+    width: 100%;
+    padding: 0.8rem;
+    outline: none;
+    font-size: 1.6rem;
+    color: #fff;
+    font-family: "Nunito";
+}
+/* .assumption-form-heading   {
+    grid-area: assumption-form-heading;
+    display: flex;
+    
+    justify-content: center;
+   
+    align-items: center;
+   
     
     
 }
@@ -54,45 +73,42 @@
 }
 .title {
     grid-area: title;
-    /* background-color: burlywood; */
+   
     display: grid;
     grid-template-rows: repeat(2,5vh);
-    /* margin: 1rem 0; */
+   
 }
 .description {
     grid-area: description;
-    /* background-color: cadetblue; */
+   
     display: grid;
     grid-template-rows: repeat(2,5vh);
-    /* margin: 1rem 0; */
+   
 }
 .detailDescription {
     grid-area: detailDescription;
-    /* background-color: chartreuse; */
+   
     display: grid;
     grid-template-rows: repeat(2,5vh);
-    /* margin: 1rem 0; */
+   
 }
 .labels {
     grid-area: tags;
-    /* margin: 1rem; */
-    /* background-color: chocolate; */
+   
     display: grid;
     grid-template-rows: repeat(2,5vh);
-    /* margin: 1rem 0; */
+   
 }
 
 ::placeholder {
     font-size: 1.5rem;
     font-family: "Nunito";
 }
-.add-form-btn {
-    /* background-color: red; */
-}
+
 .add-form-btn button {
     grid-area: add-form-btn;
     display: grid;
-    /* grid-template-rows: 10vh; */
+  
     background-color: #02C396;
     border-radius :0.3rem;
     display: flex;
@@ -106,16 +122,31 @@
 }
 .tagsAdded {
     grid-area: tagsAdded;
-   /* background-color: salmon; */
+    margin-top: 1rem ;
+   
    display: grid;
-   grid-template-rows: minmax(min-content,15vh);
-   grid-template-columns: repeat(auto-fit,50rem)
-    /* min-width: 50rem; */
+    grid-template-rows:1fr;
+   grid-template-columns: 1fr;
+   display: flex;
+   justify-content: center;
+   align-items: center;
   
 }
-@media only screen and (max-width: 600px) {
-    .assumption-form input {
-        width: 27rem;
-        /* background-color: #02C396; */
+@media only screen and (max-width: 1100px) {
+    .title, .description, .detailDescription, .labels {
+       margin: 1rem 0;
+       
     }
-}
+}*/
+@media only screen and (max-width: 800px) {
+    .assumptionForm input {
+        width: 50rem;
+       
+    }
+} 
+@media only screen and (max-width: 500px) {
+    .assumptionForm input {
+        width: 36rem;
+       
+    }
+} 

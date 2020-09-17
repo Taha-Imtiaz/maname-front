@@ -8,10 +8,10 @@ const TagsListItem = props => {
  console.log(label)
   return (
     
-    <div style = {{borderBottom:"1px solid #02C396",marginRight:"0.5rem",display:"flex"}} className = "taglistitem">
+    <div  className = "taglistitem flex">
       
-     <span style = {{fontSize: "1.5rem",marginRight:"0.5rem"}} > {label.tagValue}</span>
-      <FontAwesomeIcon icon = {faTimes} style = {{marginRight:"1rem"}} onClick ={()=>handleTagsDelete(label.tagId)}>Delete</FontAwesomeIcon>
+     <input style = {{fontSize: "1.5rem",border:"1px solid #02C396",textIndent:"1rem"}} value = {`${label.tagValue}`}></input>
+      <FontAwesomeIcon icon = {faTimes}  className = "close-icon" onClick ={()=>handleTagsDelete(label.tagId)}>Delete</FontAwesomeIcon>
       
     </div>
   );

@@ -48,7 +48,13 @@ const Profile = (props) => {
                     </div>
                     <div className="assumption-heading">
                         <h2 className = "myassumption">My Assumptiopns</h2>
-                        <Link to = "/timeline" className = "allassumption" style = {{textDecoration:"none",color:"#000"}}>
+                        <Link to = {{
+                           pathname: "/timeline",
+                          assumptions:{
+                              showAllAssumptions: true
+                          }
+                            }} 
+                            className = "allassumption" style = {{textDecoration:"none",color:"#000"}} >
                         <h2 >See All Assumptions</h2></Link>
                     </div>
                 </div>

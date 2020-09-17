@@ -172,14 +172,16 @@ grid-template-areas: "homebtn userprofilebtn";
   nav {
     /* color: #000; */
     font-size: 1.5rem;
+    
   }
   .navbar-nav li {
     margin: 1rem;
     font-weight: 700;
     font-family: "Nunito";
     font-size: 1.7rem;
-   
-    text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 
   }
   .navbar-brand {
@@ -189,7 +191,7 @@ grid-template-areas: "homebtn userprofilebtn";
    text-transform: uppercase;
   }
   .nav-link {
-    transform: translateY(0.6rem);
+    /* transform: translateY(0.6rem); */
   }
   
  .nav-link .loginbtn {
@@ -199,7 +201,7 @@ grid-template-areas: "homebtn userprofilebtn";
     padding: 0.5rem 2rem;
     color: #FFFFFF;
     outline: none;
-    transform: translateY(-0.6rem);
+    /* transform: translateY(-0.6rem); */
     /* border: 1px solid #757070; */
     
    /* padding: 0.8rem 2.4rem; */

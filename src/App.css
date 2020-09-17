@@ -3,6 +3,7 @@
     padding: 0;
     border: 0;
     box-sizing: border-box;
+    
 }
 body {
     overflow-x: hidden;
@@ -12,26 +13,26 @@ html {
     font-size: 62.5%;
 }
  /* .App {
-    width: 100vw;
-    height: 100vh;
+  
     display: grid;
-    grid-template-rows: 10vh 75vh 15vh;
+    grid-template-rows: minmax(10vh,min-content) minmax(75vh,min-content) minmax(15vh,min-content);
     grid-template-columns:1fr;
     grid-template-areas: "navbar"
                            " pageContent"        
                               "." ;
    
-} */
-/* .navbar {
+} 
+ .navbar {
    grid-area: navbar;
-   height: 10vh;
+   grid-template-rows: minmax(10vh,min-content); */
+   /* height: 10vh;
    z-index: 10;
-   position: fixed;
-} */
+   position: fixed; */
+/* } */
 
 /* .pageContent {
     grid-area: pageContent; 
-    height: 75vh;
+   grid-template-rows: minmax(75vh,min-content);
     
  }  */
 .flex {
@@ -45,10 +46,10 @@ html {
       
     }
   }
+
   @media only screen and (max-width:650px) {
     html {
-      font-size: 50%;
-      
+      font-size: 50%; 
     }
   }
   

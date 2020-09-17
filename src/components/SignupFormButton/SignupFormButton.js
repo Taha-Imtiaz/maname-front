@@ -4,7 +4,7 @@ const SignupFormButton = () => {
     return (
         <div className = "Signup-button">
            
-           <div className="alternate-signup flex">
+           <div className="alternateauth flex">
                or signup with
            </div>
         </div>

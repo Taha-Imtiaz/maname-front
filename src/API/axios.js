@@ -77,3 +77,11 @@ export var getUser = async (userId) => {
     }
     
 }
+export var getExistingUser = async (username) => {
+ try {
+  var response = await axios.get(`https://manamede.herokuapp.com/api/check-username/${username}`)
+  return response;
+ } catch (error) {
+   console.log(error)
+ }
+}

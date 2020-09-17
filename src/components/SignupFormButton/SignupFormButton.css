@@ -1,19 +1,32 @@
 .Signup-button {
-    /* height: 15vh; */
-    margin: 0.5rem 0;
+    
     display: grid;
     grid-template-rows:  8vh;
- grid-template-areas: "alternate-signup";
+    grid-template-columns: 1fr;
+ grid-template-areas: "alternateauth";
 grid-template-columns: 1fr;
 /* background-color: sienna; */
 }
 
 
-.alternate-signup {
-    height: 8vh;
-    grid-area: alternate-signup;
+.alternateauth {
+   
+    grid-area: alternateauth;
+    /* background-color: red; */
     font-family: "Nunito";
     font-size: 1.5rem;
-    margin: 4rem 0;
+    /* margin-top: 6.5rem; */
     color: #a8a8a8;
+}
+@media only screen and (max-width:800px) {
+    .Signup-button {
+    
+        display: grid;
+        grid-template-rows:  10vh;
+        grid-template-columns: 1fr;
+     grid-template-areas: "alternateauth";
+    grid-template-columns: 1fr;
+    /* background-color: sienna; */
+    }
+    
 }

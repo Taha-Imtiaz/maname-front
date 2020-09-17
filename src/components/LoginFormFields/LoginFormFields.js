@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./LoginFormFields.css";
+import styles from  "./LoginFormFields.module.css";
 import { registerUser, loginUser } from '../../API/axios';
 import { withRouter } from 'react-router-dom';
 
@@ -7,7 +7,8 @@ class LoginFormFields extends Component {
 state = {
    username: '',
     password: '',
-    provider:"MAIL"
+    provider:"MAIL",
+   
     
 }
 handleInput = (e) => {
@@ -18,6 +19,32 @@ handleInput = (e) => {
        
     })
 }
+// validateForm = ({username,password}) => {
+//   var {errors: {usernameError,passwordError}} = this.state
+//   console.log(usernameError,passwordError)
+//   var userNameRegex = /^[A-Za-z. ]{3,30}$/
+//   // var passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/
+//   if(username.match(userNameRegex)) {
+// this.setState({
+//    usernameError: ""
+// })
+//  }
+// else if(!username.match(userNameRegex)) {
+//   this.setState({
+//      usernameError: "Username is Invalid"
+//   })
+// }
+// else if(password.match(passwordRegex)) {
+//   this.setState({
+//     passwordError: ""
+//   })
+// }
+// else if(!password.match(passwordRegex)) {
+//   this.setState({
+//     passwordError: "Password is invalid"
+//   })
+// }
+// }
 handleFormSubmit = (e) => {
   var {username, password,provider} = this.state
   var {history} = this.props
@@ -27,7 +54,7 @@ handleFormSubmit = (e) => {
     password: password,
     provider: provider
   }
-
+// this.validateForm({username, password} )
  loginUser(userObj, () => {
   history.push("/timeline")
 })
@@ -35,20 +62,40 @@ handleFormSubmit = (e) => {
 
   render() {
       var {username, password} = this.state;
+      // var {errors: {usernameError,passwordError}} = this.state
     return (
       <div className = "login-container">
-          <form onSubmit = {this.handleFormSubmit}>
+<form  onSubmit = {this.handleFormSubmit}>
+  <div className="form-group">
+    <label for="exampleInputEmail1">Username</label>
+    <input type="text" className="form-control" placeholder="Enter Username" name = "username" value = {username} onChange = {this.handleInput} required/>
+   
+  </div>
+  <div className="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" className="form-control"placeholder="Password" name = "password" value = {password} onChange = {this.handleInput} required/>
+  </div>
+  <div className="form-check">
+    <input type="checkbox" className={`${styles.formCheckInput}`} id="exampleCheck1"/>
+    <label className="form-check-label" for="exampleCheck1">I agree with all the terms and conditions</label>
+  </div>
+  <button type="submit" className={`${styles.loginBtn}`}>Login</button>
+</form>
 
-          <div className="username">
-              <label htmlFor="">Username</label>
+          {/* <form onSubmit = {this.handleFormSubmit}>
+
+          <div className="loginusername">
+              <label htmlFor="" style = {{transform: "translateY(-1rem)"}}>Username</label>
             <input type="text"  name = "username" value = {username} onChange = {this.handleInput}/>
+           
               </div>
 
            
 
-        <div className="password">
+        <div className="loginpassword">
          <label htmlFor="">Password</label>
           <input type="password"  name = "password" value = {password} onChange = {this.handleInput}/>
+     
          </div>
 
          <div className="terms-conditions">
@@ -61,7 +108,7 @@ handleFormSubmit = (e) => {
            <button type = "submit">Login</button>
            </div>
           </form>
-         
+          */}
       </div>
       
     );

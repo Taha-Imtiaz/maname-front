@@ -1,31 +1,32 @@
-.login-container {
-    /* height: 30vh; */
+/* .login-container {
+    
     display: grid;
     grid-template-rows: repeat(3, 10vh) 7vh ;
     grid-template-columns: 1fr;
-    grid-template-areas: "email"
+    grid-template-areas: "username"
                            "password" 
                            "forgot-password"
                           " loginheading";
 
    
 }
-form .email {
-    grid-area: email;
-    height: 10vh;
+form .loginusername {
+    grid-area: loginusername;
+  
     display: grid;
     grid-template-rows: 3vh 7vh;
+   
      
 }
-form .password {
-    grid-area: password;
-    height: 10vh;
+form .loginpassword {
+    grid-area: loginpassword;
+  
     display: grid;
     grid-template-rows: 3vh 7vh;
-    
+ 
 }
 form .forgot-password {
-    height: 10vh;
+   grid-area: forgot-password;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-areas: "selectbox . forget-password";
@@ -35,15 +36,16 @@ form .forgot-password {
 } 
 .selectbox {
     grid-area: selectbox;
+ 
     color: #02C396;
     font-size: 1.2rem;
     font-family: "Nunito";
 }
 .forget-password {
     grid-area: forget-password;
-
+ 
     font-family: "Nunito";
-    transform: translateY(1rem);
+   
     color: #02C396;
     font-size: 1.2rem;
 }
@@ -71,8 +73,38 @@ input {
       
     border-radius: 0.3rem;
     font-family: 'Nunito';
-    margin-top: 0.8rem;
+
     outline: none;
     font-size: 1.6rem;
     color: #fff
+} */
+/* .login-container {
+position: relative;
+} */
+.formCheckInput {
+    transform: translateY(1.5rem);
+    margin-right: 1rem;
+}
+/*  */
+input {
+    height: 4rem;
+    outline: none;
+    border-bottom: 1.5px solid #a8a8a8;
+} 
+.loginBtn {
+    background-color: #02C396;
+    /* position: absolute; */
+      margin: 2rem 0;
+    border-radius: 0.3rem;
+    font-family: 'Nunito';
+    width: 100%;
+    padding: 0.8rem;
+    outline: none;
+    font-size: 1.6rem;
+    color: #fff;
+    font-family: "Nunito";
+}
+label {
+    font-size: 1.5rem;
+    font-family: "Nunito";
 }

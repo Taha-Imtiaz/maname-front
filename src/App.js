@@ -23,7 +23,7 @@ function App() {
           <Route path="/timeline" component={TimeLine} />
           <Route path="/profile" component={UserProfile} />
           <Route path="/addassumption" component={AddAssumptions} />
-          {/* <Redirect to = "/" exact to ="/timeline"/> */}
+          <Redirect to = "/" exact to ="/timeline"/>
         </Switch>
       </div>
     </div>

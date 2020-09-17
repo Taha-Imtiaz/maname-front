@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./AddAssumptionForm.css";
+import styles from "./AddAssumptionForm.module.css";
 import TagsList from "../TagsList/TagList";
 import { v4 as uuidv4 } from "uuid";
 import { addAssumptions } from "../../API/axios";
@@ -90,12 +90,12 @@ class AddAssumptionForm extends Component {
       tagInput: tagInput,
       labels: labels,
       credits: credits,
-      owner: owner
+      owner: owner,
     };
     addAssumptions(assumptionObj, () => {
       history.push("/timeline");
     });
-    console.log(assumptionObj)
+    console.log(assumptionObj);
   };
   render() {
     var {
@@ -107,13 +107,70 @@ class AddAssumptionForm extends Component {
     } = this.state;
 
     return (
-      <div className="assumption-form-container">
-        <div className="assumption-form">
-          <div className="assumption-form-fields">
-            <div className="assumption-form-heading">
+      <div className={`${styles.assumptionFormContainer}`}>
+        <div className={`${styles.assumptionForm}`}>
+          <div className={`${styles.assumptionFormFields}`}>
+            <div className={`${styles.assumptionFormHeading} ${styles.flex}`}>
               <h1>Add Assumption Form</h1>
             </div>
             <form onSubmit={this.handleAddAssumptionForm}>
+              <div className="form-group">
+                <label>Title</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  placeholder="Title"
+                  name="title"
+                  value={title}
+                  onChange={this.handleFormInput}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label>Description</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Description"
+                  name="description"
+                  value={description}
+                  onChange={this.handleFormInput}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label>Detail Description</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Detail Description"
+                  name="detailDescription"
+                  value={detailDescription}
+                  onChange={this.handleFormInput}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label>Labels</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="tagInput"
+                  value={tagInput}
+                  onChange={(e) => this.handleTagInput(e.target.value)}
+                  onKeyPress={this.handleTagAdder}
+                  placeholder="Add a Tag"
+                />
+              </div>
+              <TagsList
+                labels={labels}
+                handleTagsDelete={this.handleTagsDelete}
+              />
+              <button type="submit" className={`${styles.btn} ${styles.btnPrimary} ${styles.addBtn}`}>
+                Submit
+              </button>
+            </form>
+            {/* <form onSubmit={this.handleAddAssumptionForm}>
               <div className="title flex">
                 <label htmlFor="">Title</label>
                 <input
@@ -121,6 +178,7 @@ class AddAssumptionForm extends Component {
                   name="title"
                   value={title}
                   onChange={this.handleFormInput}
+                  required
                 />
               </div>
 
@@ -131,6 +189,7 @@ class AddAssumptionForm extends Component {
                   name="description"
                   value={description}
                   onChange={this.handleFormInput}
+                  required
                 />
               </div>
 
@@ -141,6 +200,7 @@ class AddAssumptionForm extends Component {
                   name="detailDescription"
                   value={detailDescription}
                   onChange={this.handleFormInput}
+                required
                 />
               </div>
 
@@ -153,9 +213,10 @@ class AddAssumptionForm extends Component {
                   onChange={(e) => this.handleTagInput(e.target.value)}
                   onKeyPress={this.handleTagAdder}
                   placeholder="Add a tag"
+                  required
                 />
               </div>
-              <div className="tagsAdded">
+              <div className="tagsAdded flex">
                 <TagsList
                   labels={labels}
                   handleTagsDelete={this.handleTagsDelete}
@@ -166,7 +227,7 @@ class AddAssumptionForm extends Component {
                   Add
                 </button>
               </div>
-            </form>
+            </form> */}
           </div>
         </div>
       </div>

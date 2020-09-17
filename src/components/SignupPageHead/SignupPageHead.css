@@ -1,5 +1,8 @@
 .Signup-heading-container {
-    height: 10vh;
+    display: grid;
+    grid-template-rows: minmax(10vh,min-content);
+    /* margin: 2rem 0; */
+    /* height: 10vh; */
     /* background-color: salmon; */
 }
 .Signup-heading-container h1 {
