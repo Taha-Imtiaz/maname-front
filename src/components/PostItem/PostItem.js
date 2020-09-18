@@ -6,8 +6,9 @@ import DisLike from "../DisLike/DisLike";
 
 
 const PostItem = (props) => {
-  var {assumption} = props;
-  // console.log(assumption)
+  var {assumption,userId} = props;
+  console.log(assumption._id, userId)
+  // console.log(assumption.credits)
   return (
     <div>
       <div className="grid">
@@ -36,13 +37,13 @@ const PostItem = (props) => {
               <div
                 className="flex like-icon"
                 style={{ justifyContent: "start", marginTop: "0.5rem" }}>
-                    <Like/>
+                    <Like assumptionId = {assumption._id} assumption = {assumption} assumptionCredits = {assumption.credits} assumptionSupport = {assumption.credits[0].credit.support} userId = {userId}/>
               </div>
 
               <div
                 className="flex dislike-icon"
                 style={{ justifyContent: "start", marginTop: "0.5rem" }}>
-               <DisLike/>
+               <DisLike assumptionId = {assumption._id} userId = {userId}  assumptionCredits = {assumption.credits} assumptionSupport = {assumption.credits[0].credit.support}/>
               </div>
             </div>
           </div>

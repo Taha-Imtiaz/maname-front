@@ -3,6 +3,8 @@ import PostItem from '../PostItem/PostItem';
 import { getUserAssumptions, getAssumptions } from '../../API/axios';
 import "./UserPosts.css"
 import { withRouter } from 'react-router-dom';
+
+var userId = null
 class UserPosts extends Component {
 
     state = {
@@ -14,10 +16,11 @@ class UserPosts extends Component {
         var sessionObj =   JSON.parse(sessionStorage.getItem("responseObj"))
         console.log("posts")
     if(profile && sessionObj) {
-        var userId = sessionObj.data._id;
+      userId =    sessionObj.data._id;
         console.log(userId)
-        if(assumptions) {
+        if(!assumptions) {
           getAssumptions().then((res) => {
+                    
                     this.setState({
                         assumption: res.data
                     })
@@ -25,6 +28,9 @@ class UserPosts extends Component {
             }
             else {
               getUserAssumptions(userId).then((res)=> {
+                var {data} = res
+                console.log(data)
+                // {data.map((userAssumptionData) => console.log(userAssumptionData.credits))}
                   this.setState({
                       assumption: res.data
                   }) 
@@ -45,13 +51,14 @@ class UserPosts extends Component {
 
   render() {
     var {assumption} = this.state
+   
    var {history:{location:{pathname}}} = this.props
    console.log(pathname)
     return (
         <div className = {pathname === "/profile" ? "profile-posts" : "timeline-posts"}>
         {
           assumption.map((assumption) =>{
-        return   <PostItem assumption = {assumption} key = {assumption._id}/>
+        return   <PostItem assumption = {assumption} key = {assumption._id} userId = {userId}/>
         
        
           })

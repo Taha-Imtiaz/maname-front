@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-
+import logo from "../../images/maname logo.png"
 class Navbar extends Component {
     // constructor(props) {
     // super(props);
@@ -25,7 +25,7 @@ class Navbar extends Component {
     return (
       <nav className={`navbar navbar-expand-md navbar-light bg-light`}>
         <Link className="navbar-brand" to="#">
-          maname.de{" "}
+         <img src={logo} alt=""/>
         </Link>
         <button
           className="navbar-toggler"

@@ -51,7 +51,7 @@ const Profile = (props) => {
                         <Link to = {{
                            pathname: "/timeline",
                           assumptions:{
-                              showAllAssumptions: true
+                              showAllAssumptions: false
                           }
                             }} 
                             className = "allassumption" style = {{textDecoration:"none",color:"#000"}} >

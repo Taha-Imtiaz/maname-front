@@ -1,0 +1,22 @@
+.count-modal {
+    width: 40vw;
+}
+.count-input {
+    font-size: 1.5rem;
+}
+
+@media only screen and (max-width:900px) {
+    .count-modal {
+        width: 60vw;
+    }
+}
+@media only screen and (max-width:575px) {
+    .count-modal {
+        width: 100vw !important;
+        margin: 0 2rem;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        max-width: 90vw;
+    }
+}

@@ -18,6 +18,7 @@ const TimeLine = (props) => {
     getUser(sessionObj.data._id)
       .then((response) => {
         //   history.push("/timeline");
+        // console.log(response)
       })
       .catch((error) => {
         console.log(error);

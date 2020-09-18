@@ -8,6 +8,7 @@
    
     /* background-color: #757070; */
 }
+
 .assumptionForm {
     grid-area: assumption-form;
     display: grid;
@@ -50,6 +51,12 @@
     font-size: 1.6rem;
     color: #fff;
     font-family: "Nunito";
+}
+label {
+    color: black;
+}
+input[type = "text"] {
+    font-size: 1.6rem;
 }
 /* .assumption-form-heading   {
     grid-area: assumption-form-heading;
