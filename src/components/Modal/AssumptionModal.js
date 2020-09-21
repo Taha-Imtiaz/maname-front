@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import "./AssumptionModal.css"
-import { addReact } from "../../API/axios";
+import { addReact, getUserAssumptions } from "../../API/axios";
 
 class AssumptionModal extends Component {
   state = {
@@ -13,7 +13,19 @@ class AssumptionModal extends Component {
     count: ''
    }
 
-  };
+  }
+
+//   var {assumptionId, userId,handleUpdatedCount, ...otherProps} = this.props;
+//   var { credit} = this.state;
+//  console.log(credit)
+ 
+//  var addReactObj = {
+//    id: assumptionId,
+//    reactor:userId,
+//     credit:{
+//       ...credit
+//     }
+//  }
 
   handleAddReact = (e) => {
     console.log("submit called")
@@ -33,7 +45,12 @@ class AssumptionModal extends Component {
   console.log(addReactObj)
   addReact(addReactObj).then((res) => {
     console.log(res)
-handleUpdatedCount(credit.count)
+    getUserAssumptions(addReactObj.reactor).then((res) =>{
+      handleUpdatedCount(credit.count)
+    }).catch((error)=> {
+      console.log(error)
+    })
+
     this.props.onHide()
   }).catch((error)=>{
     console.log(error)
@@ -79,7 +96,7 @@ handleUpdatedCount(credit.count)
           </Modal.Header>
           <Modal.Body>
             
-            <Form onSubmit = {(e) => this.handleAddReact(e)}>
+            <Form onSubmit = {this.handleAddReact}>
               <Form.Group controlId="formBasicEmail">
                 {/* <Form.Label>Email address</Form.Label> */}
                 <Form.Control type="text" placeholder="Enter credits" name = "count" value = {count} required  onChange = {(e) =>  this.handleFormInput(e.target.value)}  dialogClassName= "style-input"/>

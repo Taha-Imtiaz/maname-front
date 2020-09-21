@@ -6,35 +6,40 @@ import "./CountModal.css"
 import { addReact } from '../../API/axios';
 
 const CountModal = (props) => {
-  var {count,handleUpdatedCount,assumptionCredits, supports} = props
+  var {count,handleUpdatedCount,assumptionCredits, supports,assumption} = props
   console.log(supports)
 
+  var {assumptionId, userId, ...otherProps} = props;
+  //     var { credit} = this.state;
+
+  var addReactObj = {
+    id: assumptionId,
+    reactor:userId,
+     credit:{
+       ...assumptionCredits
+     }
+  }
+  
+ console.log(addReactObj)
+
   // console.log(assumptionCredits)
- var handleAddReact = (e) => {
-    console.log("submit called")
-    e.preventDefault();
-    var {assumptionId, userId, ...otherProps} = props;
-    // var { credit} = this.state;
+//  var handleAddReact = (e) => {
+//     console.log("submit called")
+//     e.preventDefault();
+//     var {assumptionId, userId, ...otherProps} = props;
+//     var { credit} = this.state;
   //  console.log(credit)
    
-   var addReactObj = {
-     id: assumptionId,
-     reactor:userId,
-      credit:{
-        ...assumptionCredits
-      }
-   }
-   
-  console.log(addReactObj)
-  addReact(addReactObj).then((res) => {
+  
+  // addReact(addReactObj).then((res) => {
   //  handleUpdatedCount(credit.count)
-    props.onHide()
-  }).catch((error)=>{
-    console.log(error)
-  }) 
+  //   props.onHide()
+  // }).catch((error)=>{
+  //   console.log(error)
+  // }) 
 
   
-  }
+  // }
 //  var handleFormInput = (value) => {
 //     console.log("function called")
 //     console.log(value)
@@ -60,15 +65,15 @@ const CountModal = (props) => {
           dialogClassName="count-modal"
         >
           <Modal.Header closeButton >
-            <Modal.Title id="contained-modal-title-vcenter">
+            <Modal.Title id="contained-modal-title-vcenter" >
           {supports.map((supportArr) =>
-          <div>
-          <ul style = {{listStyle:"none",display:"flex",justifyContent:"center",alignItems:"center"}}>
-          <li>
+          <div className = "count-modal-items"  >
+          <ul style = {{listStyle:"none"}} className = "flex">
+          <li className = "count-modal-item">
            
-            <img src={supportArr.reactor.imageUrl} style = {{width:"5rem",height: "5rem", borderRadius:"50%"}}alt=""/>
-          <h2 style = {{}}>{supportArr.credit.count }</h2>
-          <h2>{supportArr.reactor.username}</h2>
+            <img src={assumption.owner.imageUrl} style = {{width:"5rem",height: "5rem", borderRadius:"50%"}}alt="" className = "flex"/>
+          <h2  className = "flex">{supportArr.credit?.count }</h2>
+          <h2 className = "flex">{assumption.owner.username}</h2>
           </li>
           </ul>
           </div>
@@ -78,7 +83,7 @@ const CountModal = (props) => {
           </Modal.Header>
           <Modal.Body>
             
-            <Form onSubmit ={handleAddReact} >
+            <Form  >
               <Form.Group controlId="formBasicEmail">
                 {/* <Form.Label>Email address</Form.Label> 
                 <Form.Control type="text" placeholder="Enter credits" name = "count" value = {count} required  onChange = {(e) =>  handleFormInput(e.target.value)}  dialogClassName= "count-input"/> 
@@ -86,7 +91,7 @@ const CountModal = (props) => {
                </Form.Group>
               
               <Modal.Footer> 
-              <Button  type = "submit">Submit</Button>
+              {/* <Button  type = "submit">Submit</Button> */}
             <Button onClick={props.onHide}>Close</Button>
            
           </Modal.Footer> 

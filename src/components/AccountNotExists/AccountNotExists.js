@@ -5,7 +5,7 @@ import "./AccountNotExists.css";
 const AccountNotExists = () => {
     return (
         <div className="accountnotexist">
-        <p style = {{display:"flex",alignItems:"center",marginTop: "1.5rem"}}>
+        <p style = {{display:"flex",alignItems:"center", justifyContent: "center"}}>
         <span>Dont have an account ?</span>
         <Link to = "/signup" style = {{textDecoration:"none",color: "#02C396"}} >
          Click here

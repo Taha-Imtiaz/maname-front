@@ -86,13 +86,13 @@ handleFormSubmit = (e) => {
     <label for="exampleInputEmail1">Username</label>
     <input type="text" className="form-control" name = "username" value = {username} onChange = {this.handleInput} placeholder="Enter username" required></input>
 
-  {userExists &&    <small className={`${styles.formText} ${styles.textMuted} ${styles.checkUser}`} text-muted  style = {{fontSize:"1.4rem",backgroundColor:"#FFC0CB",borderRadius: "0.3rem"}}>{userExists}</small>}
+  {userExists &&    <small className={`${styles.formText} ${styles.textMuted} ${styles.checkUser}`}   style = {{fontSize:"1.4rem",backgroundColor:"#FFC0CB",borderRadius: "0.3rem"}}>{userExists}</small>}
   </div>
   <div className="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" className="form-control" name = "email" value = {email} onChange = {this.handleInput} placeholder="Enter email" required></input>
- <span  style = {{backgroundColor:"#FFC0CB",fontSize: "1.3rem", borderRadius: "0.3rem"}}></span>
- {(email !== "" && emailError !== "") ?  <small id="emailHelp" style = {{fontSize:"1.4rem",backgroundColor:"#FFC0CB",borderRadius: "0.3rem"}} className="form-text text-muted">{emailError}</small>: null}   
+ {/* <span  style = {{backgroundColor:"#FFC0CB",fontSize: "1.3rem", borderRadius: "0.3rem"}}></span> */}
+ {(email !== "" && emailError !== "") ?  <small id="emailHelp" style = {{fontSize:"1.4rem",backgroundColor:"#FFC0CB",borderRadius: "0.3rem"}} className={`${styles.formText} ${styles.textMuted}`}>{emailError}</small>: null}   
   </div>
   <div className="form-group">
     <label for="exampleInputPassword1">Password</label>

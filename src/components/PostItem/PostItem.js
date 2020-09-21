@@ -7,6 +7,7 @@ import DisLike from "../DisLike/DisLike";
 
 const PostItem = (props) => {
   var {assumption,userId} = props;
+  console.log(assumption)
   console.log(assumption._id, userId)
   // console.log(assumption.credits)
   return (
@@ -43,7 +44,7 @@ const PostItem = (props) => {
               <div
                 className="flex dislike-icon"
                 style={{ justifyContent: "start", marginTop: "0.5rem" }}>
-               <DisLike assumptionId = {assumption._id} userId = {userId}  assumptionCredits = {assumption.credits} assumptionSupport = {assumption.credits[0].credit.support}/>
+               <DisLike assumptionId = {assumption._id} assumption = {assumption} userId = {userId}  assumptionCredits = {assumption.credits} assumptionSupport = {assumption.credits[0].credit.support}/>
               </div>
             </div>
           </div>

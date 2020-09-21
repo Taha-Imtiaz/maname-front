@@ -4,14 +4,12 @@ import SocialLogin from 'react-social-login'
 class SocialButton extends Component{
 
 
-    render() {    
-    return (
-        <div>
-             <span {...this.props}>
+    render() {
+        return (
+            <button onClick={this.props.triggerLogin} {...this.props}>
               { this.props.children }
-            </span>
-        </div>
-    )
-}
+            </button>
+        );
+    }
 }
 export default SocialLogin(SocialButton)

@@ -24,7 +24,7 @@ class AddAssumptionForm extends Component {
       labels: [],
       credits: [
         {
-          reactor: sessionObj._id,
+          reactor: sessionObj.data._id,
           credit: {
             support: true,
             count: 1,
@@ -160,6 +160,7 @@ class AddAssumptionForm extends Component {
       history.push("/timeline");
     });
     console.log(assumptionObj);
+    console.log(assumptionObj.owner)
   }
 };
   render() {

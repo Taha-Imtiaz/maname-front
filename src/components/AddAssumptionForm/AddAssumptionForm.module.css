@@ -55,7 +55,7 @@
 label {
     color: black;
 }
-input[type = "text"] {
+input[type = "text"],input[type = "password"],input[type = "email"] {
     font-size: 1.6rem;
 }
 /* .assumption-form-heading   {

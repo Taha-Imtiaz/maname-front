@@ -12,10 +12,14 @@ import { useState } from "react";
 
  var sessionObj = null
 const Profile = (props) => {
+    var {history} = props
     var [image, setImage] = useState('')
 
  useEffect(() => {
      sessionObj = JSON.parse(sessionStorage.getItem("responseObj"))
+     if(!sessionObj) {
+         history.push("/login")
+     }
      if(sessionObj) {
     var userId = sessionObj.data._id;
     console.log(sessionObj.data)
@@ -51,7 +55,7 @@ const Profile = (props) => {
                         <Link to = {{
                            pathname: "/timeline",
                           assumptions:{
-                              showAllAssumptions: false
+                              showAllAssumptions: true
                           }
                             }} 
                             className = "allassumption" style = {{textDecoration:"none",color:"#000"}} >

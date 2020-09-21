@@ -19,6 +19,7 @@ console.log(assumption)
 
   console.log(assumption)
   var supports = assumption.credits.filter((x) => x.credit.support === true)
+  console.log(supports)
 console.log(supports.length)
 
 useEffect(() => {
@@ -43,7 +44,7 @@ setCount(supports.length)
 
     <div onClick = {() =>setCountModal(true)} style ={{paddingLeft:"0.5rem", transform:"translateY(0.15rem)"}}>{count}</div>
     {(countModal ) && <CountModal show={countModal}   count = {count} supports = {supports}
-    assumptionCredits = {assumptionCredits} assumptionId = {assumptionId} userId = {userId}
+    assumptionCredits = {assumptionCredits} assumptionId = {assumptionId} userId = {userId} assumption = {assumption}
     onHide = {() => setCountModal(false)}/>}
     </div>
   );

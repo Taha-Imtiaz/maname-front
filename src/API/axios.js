@@ -85,9 +85,9 @@ export var getExistingUser = async (username) => {
    console.log(error)
  }
 }
-export var addReact = async (credits) => {
+export var addReact = async (addReactObj) => {
  try {
-  var response = await axios.post(`https://manamede.herokuapp.com/api/add-react`);
+  var response = await axios.post(`https://manamede.herokuapp.com/api/add-react`,addReactObj);
   return response
  } catch (error) {
    console.log(error)

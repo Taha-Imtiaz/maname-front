@@ -96,6 +96,7 @@ input {
     height: 4rem;
     outline: none;
     border-bottom: 1.5px solid #a8a8a8;
+    font-size: 1.4rem;
 } 
 .formCheckLabel {
     padding-left: 1rem;
