@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import AssumptionModal from "../Modal/AssumptionModal";
 import CountModal from "../CountModal/CountModal";
-
+import { Alert } from "reactstrap";
 const DisLike = (props) => {
   var {
     assumptionId,
@@ -15,10 +15,12 @@ const DisLike = (props) => {
   } = props;
 
   const [modalShow, setModalShow] = useState(false);
-  var [count, setCount] = useState("");
+  var [count, setCount] = useState(0);
   var [countModal, setCountModal] = useState(false);
+  var [showAlert, setShowAlert] = useState(false)
 
   var supports = assumption.credits.filter((x) => x.credit.support === false);
+  console.log(assumption);
   console.log(supports);
   console.log(supports.length);
 
@@ -26,18 +28,34 @@ const DisLike = (props) => {
     setCount(supports.length);
   }, []);
 
+  // var  displayAlert = () =>{
+  //   <Alert color="primary">
+  //   This is a primary alert — check it out!
+  // </Alert>
+  // }
+
+  var openModal = () => {
+    let index = assumption.credits.findIndex((x) => x.reactor._id == userId);
+    if (index == -1) {
+      setModalShow(true);
+    } else {
+      setShowAlert(true)
+      setModalShow(false);
+    }
+  };
   var handleUpdatedCount = (updatedCount) => {
     window.location.reload();
   };
-
+  // var {supports} = state
   return (
     <div className="flex">
       <FontAwesomeIcon
         className="dislike"
         icon={faThumbsDown}
         size="1x"
-        onClick={() => setModalShow(true)}
+        onClick={openModal}
       />
+
       {modalShow && (
         <AssumptionModal
           show={modalShow}
@@ -67,6 +85,13 @@ const DisLike = (props) => {
           onHide={() => setCountModal(false)}
         />
       )}
+      {/* {
+  showAlert === true &&   
+  <div>
+  <Alert color="primary" style = {{display:"block", width: "20rem", height: "100%"}}>
+  This is a primary alert — check it out!
+</Alert></div>
+} */}
     </div>
   );
 };

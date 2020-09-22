@@ -1,22 +1,33 @@
 .style-modal {
-    width: 40vw;
+  width: 40vw;
 }
 .style-input {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
-
-@media only screen and (max-width:900px) {
-    .style-modal {
-        width: 60vw;
-    }
+.credit-alert {
+  width: 70vh;
+  height: 10vh;
+   background: #d9534f;
+border-radius: 0.1rem;
+  position: fixed;
+  left: calc(40% - 90px);
+  top: calc(25% - 90px);
+  color: white;
+  cursor: pointer;
+  /* display: flex; */
 }
-@media only screen and (max-width:575px) {
-    .style-modal {
-        width: 100vw !important;
-        margin: 0 2rem;
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        max-width: 90vw;
-    }
+@media only screen and (max-width: 900px) {
+  .style-modal {
+    width: 60vw;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .style-modal {
+    width: 100vw !important;
+    margin: 0 2rem;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    max-width: 90vw;
+  }
 }

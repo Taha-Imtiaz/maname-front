@@ -20,6 +20,7 @@
     "react-scripts": "3.4.3",
     "react-social-login": "^3.4.9",
     "react-tag-input": "^6.4.3",
+    "reactstrap": "^8.6.0",
     "uuid": "^8.3.0"
   },
   "scripts": {
