@@ -8,6 +8,17 @@ import { addReact, getUserAssumptions } from "../../API/axios";
 var sessionObj = null;
 var userCredits = null;
 class AssumptionModal extends Component {
+
+  constructor(props) {
+    super(props);
+    // Don't call this.setState() here!
+    sessionObj = JSON.parse(sessionStorage.getItem("responseObj"));
+    console.log(sessionObj);
+    userCredits = sessionObj.credits;
+    console.log(userCredits);
+    this.credits = userCredits;
+  }
+
   state = {
     show: this.props.show,
     credit: {
@@ -17,10 +28,7 @@ class AssumptionModal extends Component {
     creditError: false,
   };
   componentDidMount = () => {
-    sessionObj = JSON.parse(sessionStorage.getItem("responseObj"));
-    console.log(sessionObj);
-    userCredits = sessionObj.data.credits;
-    console.log(userCredits);
+
   };
 
   //   var {assumptionId, userId,handleUpdatedCount, ...otherProps} = this.props;
@@ -109,8 +117,8 @@ class AssumptionModal extends Component {
     return (
       <div>
         {creditError === true && (
-          <Alert color="danger" className = "credit-alert flex">
-          Please Enter valid credits
+          <Alert color="danger" className="credit-alert flex">
+            Please Enter valid credits
           </Alert>
         )}
         <Modal
@@ -124,7 +132,7 @@ class AssumptionModal extends Component {
             <Modal.Title id="contained-modal-title-vcenter">
               <h4>
                 How many credits you want to spent to{" "}
-                {support ? "support" : "oppose"} this assumption
+                {support ? "support" : "oppose"} this assumption? You have {this.credits} credits remaining.
               </h4>
             </Modal.Title>
           </Modal.Header>

@@ -4,26 +4,24 @@
 .count-input {
     font-size: 1.5rem;
 }
-.flex {
+/* .flex {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 .count-modal-items {
-    display: grid;
+    /* display: grid;
     grid-template-columns: 100fr;
-   /* background-color: black; */
-   grid-template-rows: repeat(auto-fit,minmax(min-content,1fr));
+   grid-template-rows: repeat(auto-fit,minmax(min-content,1fr)); */
    /* grid-template-areas: "count-modal-item"; */
 }
-.count-modal-item {
-    /* grid-area: count-modal-item; */
+/* .count-modal-item {
     display: grid;
     
     grid-template-rows: 7vh;
     grid-template-columns: 25fr 50fr 25fr;
     
-}
+} */
 
 
 @media only screen and (max-width:900px) {

@@ -11,7 +11,7 @@ class AddAssumptionForm extends Component {
   constructor() {
     super();
     sessionObj = JSON.parse(sessionStorage.getItem("responseObj"));
-    console.log(sessionObj.data._id);
+    console.log(sessionObj._id);
     this.state = {
       title: "",
       description: "",
@@ -24,14 +24,14 @@ class AddAssumptionForm extends Component {
       labels: [],
       credits: [
         {
-          reactor: sessionObj.data._id,
+          reactor: sessionObj._id,
           credit: {
             support: true,
             count: 1,
           },
         },
       ],
-      owner: sessionObj.data._id,
+      owner: sessionObj._id,
     };
   }
 

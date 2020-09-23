@@ -9,13 +9,13 @@ import "./ProfileForm.css"
        
             sessionObj = JSON.parse(sessionStorage.getItem("responseObj"))
             if(sessionObj) {
-           var userId = sessionObj.data._id;
+           var userId = sessionObj._id;
            console.log(sessionObj.data)
            this.setState({
-               name: sessionObj.data.username,
-               email:sessionObj.data.email,
-               credits: sessionObj.data.credits,
-               memberSince:sessionObj.data.memberSince
+               name: sessionObj.username,
+               email:sessionObj.email,
+               credits: sessionObj.credits,
+               memberSince:sessionObj.memberSince
 
            })
         }     

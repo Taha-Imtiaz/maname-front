@@ -21,9 +21,9 @@ const Profile = (props) => {
          history.push("/login")
      }
      if(sessionObj) {
-    var userId = sessionObj.data._id;
+    var userId = sessionObj._id;
     console.log(sessionObj.data)
-    setImage(sessionObj.data.imageUrl)
+    setImage(sessionObj.imageUrl)
 } }, [])
 
     return (
@@ -45,7 +45,7 @@ const Profile = (props) => {
                         
                     </div>
                     <div className="profile-pic flex">
-                        <img src={sessionObj?.data.imageUrl} alt=""/>
+                        <img src={sessionObj?.imageUrl} alt=""/>
                     </div>
                     <div className="form">
                         <ProfileForm/>

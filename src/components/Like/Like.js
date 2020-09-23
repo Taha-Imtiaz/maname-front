@@ -79,7 +79,7 @@ const Like = (props) => {
 
       <div
         onClick={() => setCountModal(true)}
-        style={{ paddingLeft: "0.5rem", transform: "translateY(0.15rem)" }}
+        style={{ paddingLeft: "0.5rem", transform: "translateY(0.15rem)", cursor: 'pointer' }}
       >
         {count}
       </div>

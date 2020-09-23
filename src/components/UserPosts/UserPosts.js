@@ -21,7 +21,7 @@ class UserPosts extends Component {
     var sessionObj = JSON.parse(sessionStorage.getItem("responseObj"));
     console.log("posts");
     if (profile && sessionObj) {
-      userId = sessionObj.data._id;
+      userId = sessionObj._id;
       console.log(userId);
       if (assumptions) {
         getUserAssumptions(userId).then((res) => {

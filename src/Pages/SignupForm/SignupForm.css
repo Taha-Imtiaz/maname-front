@@ -1,6 +1,6 @@
 
 .signup-form-container {
-  
+  margin-top: 15px;
   display: grid;
   grid-template-rows: minmax(70vh,min-content) minmax(20vh,min-content);
   grid-template-columns: 10fr 40fr 10fr 30fr 10fr;

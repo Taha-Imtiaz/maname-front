@@ -69,7 +69,7 @@ const DisLike = (props) => {
 
       <div
         onClick={() => setCountModal(true)}
-        style={{ paddingLeft: "0.5rem", transform: "translateY(0.01rem)" }}
+        style={{ paddingLeft: "0.5rem", transform: "translateY(0.01rem)", cursor: 'pointer'}}
       >
         {count}
       </div>

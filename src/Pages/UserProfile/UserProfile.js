@@ -13,7 +13,7 @@ const UserProfile = (props) => {
 
  if(sessionObj != null) {
        // console.log(sessionObj.data._id);
-  getUser(sessionObj.data._id).then((response) => {
+  getUser(sessionObj._id).then((response) => {
       //  history.push("/profile")
      }).catch((error) => {
          console.log(error)

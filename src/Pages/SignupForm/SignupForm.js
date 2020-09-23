@@ -12,8 +12,8 @@ const SignupForm = () => {
             <div className="form-components">
              <SignupPageHead/> 
            <SignupFormFields/>
-           <SignupFormButton/>
-           <FormIcons/>
+           {/* <SignupFormButton/> */}
+           {/* <FormIcons/> */}
         </div>
         </div>
     )

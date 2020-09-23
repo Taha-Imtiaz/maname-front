@@ -16,8 +16,8 @@ const LoginForm = () => {
             <div className="form-components">
            <LoginPageHead/> 
            <LoginFormFields/>
-           <LoginFormButton/>
-           <FormIcons/>
+           {/* <LoginFormButton/> */}
+           {/* <FormIcons/> */}
            <AccountNotExists/>
            </div>
         </div>

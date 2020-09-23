@@ -14,9 +14,10 @@ const TimeLine = (props) => {
   }
 
   if (sessionObj != null) {
-    console.log(sessionObj.data._id);
-    getUser(sessionObj.data._id)
+    console.log(sessionObj._id);
+    getUser(sessionObj._id)
       .then((response) => {
+        sessionStorage.setItem('responseObj',  JSON.stringify(response.data.data))
         //   history.push("/timeline");
         // console.log(response)
       })
