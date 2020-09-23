@@ -10,10 +10,7 @@ export var registerUser = async (data, callback) => {
     //add data to session storage
     sessionStorage.setItem(
       "responseObj",
-      JSON.stringify({
-        data: response.data.data,
-        token:response.data.token
-      })
+      JSON.stringify(response.data.data)
     );
 
     //redirect to assumptions
@@ -33,10 +30,7 @@ export var loginUser = async (data, callback) => {
     //add data to session storage
     sessionStorage.setItem(
       "responseObj",
-      JSON.stringify({
-        data: response.data.data,
-        token:response.data.token
-      })
+      JSON.stringify(response.data.data)
     );
     //redirect to assumptions
     callback();
