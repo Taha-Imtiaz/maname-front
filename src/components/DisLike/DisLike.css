@@ -1,3 +1,22 @@
 .dislike {
     color:  #02C396;
 }
+.dislike-alert {
+    width: 70vh;
+  height: 10vh;
+   background: #d9534f;
+border-radius: 0.1rem;
+  position: fixed;
+  left: calc(40% - 90px);
+  top: calc(25% - 90px);
+  color: white;
+  cursor: pointer;
+  
+  /* display: flex; */
+}
+@media only screen and (max-width:600px) {
+    .dislike-alert {
+        width: 50vh;
+        left: calc(38% - 90px);
+    }
+}

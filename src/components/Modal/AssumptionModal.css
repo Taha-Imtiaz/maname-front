@@ -30,4 +30,8 @@ border-radius: 0.1rem;
     align-items: center !important;
     max-width: 90vw;
   }
+  .credit-alert {
+   width: 50vh;
+   left: calc(37% - 90px);
+  }
 }

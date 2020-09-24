@@ -21,6 +21,7 @@ class AssumptionModal extends Component {
 
   state = {
     show: this.props.show,
+    backdrop: true,
     credit: {
       support: this.props.support === true ? true : false,
       count: "",
@@ -62,8 +63,16 @@ class AssumptionModal extends Component {
       console.log("credit error");
       this.setState({
         creditError: true,
+        backdrop: false
       });
-      // this.props.onHide();
+      setTimeout(() => {
+        // this.props.onHide()
+        this.setState({
+        creditError: false,
+        backdrop: true
+        })
+      }, 2500);
+      // this.props.handleCreditError(this.state.creditError)
     } else {
       var addReactObj = {
         id: assumptionId,
@@ -111,6 +120,7 @@ class AssumptionModal extends Component {
     var {
       credit: { count },
       creditError,
+      backdrop
     } = this.state;
     // var {count} =  credit
     console.log(count);
@@ -119,10 +129,13 @@ class AssumptionModal extends Component {
         {creditError === true && (
           <Alert color="danger" className="credit-alert flex">
             Please Enter valid credits
+
           </Alert>
         )}
         <Modal
           {...this.props}
+       backdrop={backdrop} 
+      //  fade={false}
           size="lg"
           aria-labelledby="contained-modal-title-vcenter"
           centered

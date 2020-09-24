@@ -8,6 +8,7 @@ import { getUser } from "../../API/axios";
 import { Alert } from "reactstrap";
 
 const Like = (props) => {
+  
   var supports = null;
   console.log(props);
   var {
@@ -21,7 +22,7 @@ const Like = (props) => {
 
   
   const [modalShow, setModalShow] = useState(false);
-  
+  const [creditsError, setCreditsError]  = useState(false);
 
   var [count, setCount] = useState(0);
   var [countModal, setCountModal] = useState(false);
@@ -36,15 +37,31 @@ const Like = (props) => {
     setCount(supports.length);
   }, []);
 
+
+//  var handleCreditError = (creditError) => {
+//    if(creditError === true) {
+//      console.log("credit error true")
+//      setTimeout(() => {
+//        setCreditsError(true)
+//      }, 2500);
+//    }
+//   }
+
   var openModal = () => {
     let index = assumption.credits.findIndex((x) => x.reactor._id == userId);
+    // console.log(index)
     if (index == -1) {
       setModalShow(true);
     } else {
       setShowAlert(true);
+      setTimeout(() => {
+        setShowAlert(false)
+      }, 2500);
       setModalShow(false);
     }
   };
+
+ 
 
   var handleUpdatedCount = (updatedCount) => {
     window.location.reload();
@@ -52,7 +69,14 @@ const Like = (props) => {
   // console.log(showModal);
 
   return (
+    
     <div className="flex">
+      {showAlert === true && (
+          <Alert color="danger" className="like-alert flex">
+           You are not allowed to react to this post
+      
+          </Alert>
+        )}
       <FontAwesomeIcon
         className="like"
         icon={faThumbsUp}
@@ -74,6 +98,7 @@ const Like = (props) => {
           userId={userId}
           handleUpdatedCount={handleUpdatedCount}
           onHide={() => setModalShow(false)}
+          // handleCreditError = {handleCreditError}
         />
       )}
 

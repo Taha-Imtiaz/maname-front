@@ -39,7 +39,10 @@ const DisLike = (props) => {
     if (index == -1) {
       setModalShow(true);
     } else {
-      setShowAlert(true)
+      setShowAlert(true);
+      setTimeout(() => {
+        setShowAlert(false)
+      }, 2500);
       setModalShow(false);
     }
   };
@@ -49,6 +52,11 @@ const DisLike = (props) => {
   // var {supports} = state
   return (
     <div className="flex">
+       {showAlert === true && (
+          <Alert color="danger" className="dislike-alert flex">
+          You are not allowed to react to this post
+          </Alert>
+        )}
       <FontAwesomeIcon
         className="dislike"
         icon={faThumbsDown}
