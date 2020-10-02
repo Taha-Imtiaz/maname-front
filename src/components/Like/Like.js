@@ -120,6 +120,7 @@ const Like = (props) => {
           onHide={() => setCountModal(false)}
         />
       )}
+      <div  style={{ paddingLeft: "0.5rem", transform: "translateY(0.15rem)", cursor: 'pointer' }}>({assumption.supportingSum})</div>
     </div>
   );
 };

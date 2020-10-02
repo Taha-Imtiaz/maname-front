@@ -51,12 +51,16 @@
     font-size: 1.6rem;
     color: #fff;
     font-family: "Nunito";
+    outline: none !important;
 }
 label {
     color: black;
 }
-input[type = "text"],input[type = "password"],input[type = "email"] {
+input[type = "text"],input[type = "password"],input[type = "email"],input[type = "number"]  {
     font-size: 1.6rem;
+}
+textarea [type = "text"]{ 
+    font-size: 1.6rem;  
 }
 /* .assumption-form-heading   {
     grid-area: assumption-form-heading;

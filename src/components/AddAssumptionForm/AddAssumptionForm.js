@@ -20,7 +20,8 @@ class AddAssumptionForm extends Component {
       descriptionCharacterLimit: "",
       detailDescriptionCharacterLimit: "",
       tagInput: "",
-      inputFocus:true,
+      CreditCount: 1,
+      inputFocus: true,
       labels: [],
       credits: [
         {
@@ -31,62 +32,61 @@ class AddAssumptionForm extends Component {
           },
         },
       ],
+      
+      // Credits: credits[0].credit.count,
       owner: sessionObj._id,
     };
   }
 
   handleFormInput = (e) => {
     var { name, value } = e.target;
-    if(name === "title" && value.length > 100) {
+    // console.log(value)
+    if (name === "title" && value.length > 100) {
       this.setState({
-        titleCharacterLimit:"Maximam 100 characters are allowed"
-      })
-      
+        titleCharacterLimit: "Maximam 100 characters are allowed",
+      });
+    } else if (name === "title" && value.length <= 100) {
+      this.setState({
+        titleCharacterLimit: "",
+      });
     }
-    else if (name === "title" && value.length <= 100) {
-     this.setState({
-       titleCharacterLimit:""
-     })
-     
+    if (name === "description" && value.length > 2000) {
+      this.setState({
+        descriptionCharacterLimit: "Maximam 2000 characters are allowed",
+      });
+    } else if (name === "description" && value.length <= 2000) {
+      this.setState({
+        descriptionCharacterLimit: "",
+      });
     }
-    if(name === "description" && value.length > 2000) {
-     this.setState({
-       descriptionCharacterLimit:"Maximam 2000 characters are allowed"
-     })
-     
-   }
-   else if (name === "description" && value.length <= 2000) {
-    this.setState({
-      descriptionCharacterLimit:""
-    })
-    
-   }
-   if(name === "detailDescription" && value.length > 500) {
-     this.setState({
-       detailDescriptionCharacterLimit:"Maximam 500 characters are allowed"
-     })
-     
-   }
-   else if (name === "detailDescription" && value.length <= 500) {
-    this.setState({
-      detailDescriptionCharacterLimit:""
-    })
-    
-   }
+    if (name === "detailDescription" && value.length > 500) {
+      this.setState({
+        detailDescriptionCharacterLimit: "Maximam 500 characters are allowed",
+      });
+    } else if (name === "detailDescription" && value.length <= 500) {
+      this.setState({
+        detailDescriptionCharacterLimit: "",
+      });
+    }
     this.setState({
       [name]: value,
     });
   };
+  // handleCreditInput = (value) => {
+  //   var { credits } = this.state;
+  //   var creditCopy = { ...credits };
+  //   console.log(value);
+  //   this.setState({
+  //     // creditCopy.credit.count: value
+  //   });
+  // };
   handleInputFocus = () => {
     this.setState({ inputFocus: true });
   };
 
   handleInputBlur = () => {
- 
-  
-    this.setState({ 
+    this.setState({
       inputFocus: false,
-    
     });
   };
 
@@ -125,14 +125,21 @@ class AddAssumptionForm extends Component {
   };
 
   validateAssumptionForm = () => {
-    var {titleCharacterLimit,descriptionCharacterLimit,detailDescriptionCharacterLimit} = this.state;
-    if(titleCharacterLimit === "" && descriptionCharacterLimit === "" && detailDescriptionCharacterLimit === "") {
-      return true
+    var {
+      titleCharacterLimit,
+      descriptionCharacterLimit,
+      detailDescriptionCharacterLimit,
+    } = this.state;
+    if (
+      titleCharacterLimit === "" &&
+      descriptionCharacterLimit === "" &&
+      detailDescriptionCharacterLimit === ""
+    ) {
+      return true;
+    } else {
+      return false;
     }
-    else {
-      return false
-    }
-  }
+  };
 
   handleAddAssumptionForm = (e) => {
     var {
@@ -143,39 +150,42 @@ class AddAssumptionForm extends Component {
       labels,
       credits,
       owner,
+      CreditCount
     } = this.state;
     var { history } = this.props;
     e.preventDefault();
-    if(this.validateAssumptionForm()) {
-    var assumptionObj = {
-      title: title,
-      description: description,
-      detailDescription: detailDescription,
-      tagInput: tagInput,
-      labels: labels,
-      credits: credits,
-      owner: owner,
-    };
-    addAssumptions(assumptionObj, () => {
-      history.push("/timeline");
-    });
-    console.log(assumptionObj);
-    console.log(assumptionObj.owner)
-  }
-};
+    if (this.validateAssumptionForm()) {
+      var assumptionObj = {
+        title: title,
+        description: description,
+        detailDescription: detailDescription,
+        tagInput: tagInput,
+        labels: labels,
+        credits: credits,
+        owner: owner,
+      };
+      assumptionObj.credits[0].credit.count = CreditCount;
+      addAssumptions(assumptionObj, () => {
+        history.push("/timeline");
+      });
+      console.log(assumptionObj);
+      console.log(assumptionObj.owner);
+    }
+  };
   render() {
     var {
       title,
       description,
       detailDescription,
       tagInput,
+      CreditCount,
       labels,
       titleCharacterLimit,
       descriptionCharacterLimit,
       detailDescriptionCharacterLimit,
-      inputFocus
+      inputFocus,
     } = this.state;
-
+    // console.log(credits);
     return (
       <div className={`${styles.assumptionFormContainer}`}>
         <div className={`${styles.assumptionForm}`}>
@@ -193,55 +203,81 @@ class AddAssumptionForm extends Component {
                   name="title"
                   value={title}
                   onChange={this.handleFormInput}
-                  onFocus = {this.handleInputFocus}
-                  onBlur = {this.handleInputBlur}
+                  onFocus={this.handleInputFocus}
+                  onBlur={this.handleInputBlur}
                   // maxLength = {100}
                   required
                 />
-                {(title !== "" && titleCharacterLimit !== "" )? (
-                 <div class="alert alert-danger" role="alert" style = {{fontSize: "1.5rem"}}>
-                 {titleCharacterLimit}
-               </div>
-                ):null}
+                {title !== "" && titleCharacterLimit !== "" ? (
+                  <div
+                    class="alert alert-danger"
+                    role="alert"
+                    style={{ fontSize: "1.5rem" }}
+                  >
+                    {titleCharacterLimit}
+                  </div>
+                ) : null}
               </div>
-
+              <div className="form-group">
+                <label>Credits</label>
+                <input
+                  type="number"
+                  className="form-control"
+                  placeholder="Credits"
+                  name="CreditCount"
+                  value={CreditCount}
+                  // value={credit}
+                  onChange={this.handleFormInput}
+                  // maxLength = {100}
+                  required
+                />
+              </div>
               <div className="form-group">
                 <label>Description</label>
-                <input
+                <textarea rows = "4.5"
                   type="text"
                   className="form-control"
                   placeholder="Description"
                   name="description"
                   value={description}
                   onChange={this.handleFormInput}
-                  onFocus = {this.handleInputFocus}
-                  onBlur = {this.handleInputBlur}
+                  onFocus={this.handleInputFocus}
+                  onBlur={this.handleInputBlur}
                   required
                 />
-                 {(description !== "" && descriptionCharacterLimit !== "" )? (
-                 <div class="alert alert-danger" role="alert" style = {{fontSize: "1.5rem"}}>
-                 {descriptionCharacterLimit}
-               </div>
-                ):null}
+                {description !== "" && descriptionCharacterLimit !== "" ? (
+                  <div
+                    class="alert alert-danger"
+                    role="alert"
+                    style={{ fontSize: "1.5rem" }}
+                  >
+                    {descriptionCharacterLimit}
+                  </div>
+                ) : null}
               </div>
               <div className="form-group">
                 <label>Detail Description</label>
-                <input
+                <textarea rows = "4.5"
                   type="text"
                   className="form-control"
                   placeholder="Detail Description"
                   name="detailDescription"
                   value={detailDescription}
                   onChange={this.handleFormInput}
-                  onFocus = {this.handleInputFocus}
-                  onBlur = {this.handleInputBlur}
+                  onFocus={this.handleInputFocus}
+                  onBlur={this.handleInputBlur}
                   required
                 />
-                 {(detailDescription !== "" && detailDescriptionCharacterLimit !== "" )? (
-                 <div class="alert alert-danger" role="alert" style = {{fontSize: "1.5rem"}}>
-                 {detailDescriptionCharacterLimit}
-               </div>
-                ):null}
+                {detailDescription !== "" &&
+                detailDescriptionCharacterLimit !== "" ? (
+                  <div
+                    class="alert alert-danger"
+                    role="alert"
+                    style={{ fontSize: "1.5rem" }}
+                  >
+                    {detailDescriptionCharacterLimit}
+                  </div>
+                ) : null}
               </div>
               <div className="form-group">
                 <label>Labels</label>

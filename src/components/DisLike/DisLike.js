@@ -93,6 +93,8 @@ const DisLike = (props) => {
           onHide={() => setCountModal(false)}
         />
       )}
+       <div  style={{ paddingLeft: "0.5rem", transform: "translateY(0.01rem)", cursor: 'pointer' }}>({assumption.opposingSum})</div>
+    
       {/* {
   showAlert === true &&   
   <div>

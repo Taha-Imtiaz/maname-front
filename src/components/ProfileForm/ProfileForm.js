@@ -8,6 +8,7 @@ import "./ProfileForm.css"
      componentDidMount = () => {
        
             sessionObj = JSON.parse(sessionStorage.getItem("responseObj"))
+            console.log(sessionObj)
             if(sessionObj) {
            var userId = sessionObj._id;
            console.log(sessionObj.data)
@@ -44,8 +45,8 @@ import "./ProfileForm.css"
                   
                       
                        <div className ="name flex" style = {{flexFlow:"column",alignItems:"start"}}>
-                           <label htmlFor="">Name</label>
-                           <input type="text" name = "name" value = {name} onChange = {this.handleFormInput}/>
+                           <label htmlFor="">{name}</label>
+                           {/* <input type="text" name = "name" value = {name} onChange = {this.handleFormInput}/> */}
                           
                        </div>
 

@@ -103,8 +103,35 @@ input {
     font-size: 1.6rem;
     color: #fff;
     font-family: "Nunito";
+  outline: transparent !important;
 }
 label {
     font-size: 1.5rem;
     font-family: "Nunito";
+}
+.loginAlert{
+    width: 60vh;
+    height: 10vh;
+     background: #d9534f;
+  border-radius: 0.1rem;
+    position: fixed;
+    left: calc(50% - 90px);
+    top: calc(25% - 90px);
+    color: white;
+    cursor: pointer;
+    font-family: "Nunito";
+    font-size: 1.5rem;
+    
+  }
+  .flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  @media only screen and (max-width: 575px) {
+  .loginAlert{
+    width: 45vh;
+    left: calc(45% - 90px);
+   } 
 }

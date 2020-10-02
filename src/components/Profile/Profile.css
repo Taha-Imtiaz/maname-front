@@ -1,158 +1,178 @@
 .user-profile {
-    display: grid;
-    grid-template-rows: minmax(90vh,min-content);
-    grid-template-columns: minmax(0px, 1fr) minmax(min-content,118rem)  minmax(0px,1fr) ;
-    grid-template-areas: ". profile  .";
-   
+  display: grid;
+  grid-template-rows: minmax(90vh, min-content);
+  grid-template-columns: minmax(0px, 1fr) minmax(min-content, 118rem) minmax(
+      0px,
+      1fr
+    );
+  grid-template-areas: ". profile  .";
 }
 .profile {
-    grid-area: profile;
-    background-color: #F8F8F8;
-    display: grid;
-    grid-template-rows: minmax(55vh,min-content) minmax(35vh,min-content);
-    grid-template-columns: 1fr;
-    
+  grid-area: profile;
+  background-color: #f8f8f8;
+  display: grid;
+  grid-template-rows: minmax(55vh, min-content) minmax(35vh, min-content);
+  grid-template-columns: 1fr;
+}
+/* input[type="file"] {
+  border-bottom: none;
+} */
 
+
+.fileLoader {
+    display: none;
 }
 .contact-area {
-   /* background-color: seagreen; */
-   display: grid;
-   grid-template-rows: repeat(2,10vh) 20vh repeat(2,7.5vh);
-   grid-template-columns: 1fr;
-   grid-template-areas: "profile-image-heading"
-                      "profile-pic"
-                       "form" 
-                       "." 
-                       "assumption-heading";
+  /* background-color: seagreen; */
+  display: grid;
+  grid-template-rows: repeat(2, 10vh) 20vh repeat(2, 7.5vh);
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "profile-image-heading"
+    "profile-pic"
+    "form"
+    "."
+    "assumption-heading";
 }
 .profile-image-heading {
+  grid-area: profile-image-heading;
+  display: grid;
+  /* height: 7.5vh; */
+  grid-template-rows: 10vh;
+  /* background-color: slateblue; */
+  grid-template-columns: 47fr 10fr 23fr repeat(2, 10fr);
+  grid-template-areas: ". profileheading . postbutton  . ";
+}
+.profileheading {
+  grid-area: profileheading;
+  font-family: "Nunito";
+  font-size: 1.3rem;
+  flex-wrap: nowrap;
+}
+.postbutton {
+  grid-area: postbutton;
+  background-color: #02c396;
+  padding: 0.8rem;
+  /* margin: 1rem; */
+  color: #ffffff;
+  font-family: "Roboto";
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 0.25rem;
+}
+.profile-pic {
+  grid-area: profile-pic;
+  /* transform: translateY(-0.6rem); */
+  /* flex-flow: column; */
+  display: grid;
+  grid-template-rows: 6vh 2vh 2vh;
+  grid-template-areas: "image"
+                        "."
+                        "icon";
+  /* background-color: pink */
+}
+.image {
+  grid-area: image;
+}
+.camera-icon {
+  grid-area: icon;
+  transform: translateX(1.2rem);
+}
+.profile-pic img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+}
+.form {
+  grid-area: form;
+  /* background-color: powderblue; */
+}
+.assumption-heading {
+  grid-area: assumption-heading;
+  display: grid;
+  grid-template-columns: 25fr 50fr 25fr;
+  grid-template-areas: "myassumption . allassumption";
+}
+.myassumption {
+  grid-area: myassumption;
+  font-family: "Nunito";
+  padding-left: 2rem;
+}
+.allassumption {
+  grid-area: allassumption;
+  color: #02c396;
+  font-family: "Nunito";
+}
+
+.assumptions {
+  display: grid;
+  grid-template-columns: 1fr;
+  flex-flow: row;
+  grid-template-rows: min-content;
+  grid-column-gap: 2rem;
+  margin: 0 1rem;
+  /* background-color: salmon; */
+}
+@media only screen and (max-width: 800px) {
+  .assumptions {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+    height: 30vh;
+    grid-row-gap: 2rem;
+    margin: 0 2rem;
+    /* display: flex;
+        justify-content: center;
+        align-items: center; */
+  }
+
+  .assumption-heading {
+    grid-area: assumption-heading;
+    display: grid;
+    grid-template-columns: 30fr 40fr 30fr;
+    grid-template-areas: "myassumption . allassumption";
+  }
+  .profile-image-heading {
     grid-area: profile-image-heading;
     display: grid;
     /* height: 7.5vh; */
     grid-template-rows: 10vh;
     /* background-color: slateblue; */
-    grid-template-columns: 47fr 10fr 23fr repeat(2, 10fr);
-    grid-template-areas: ". profileheading . postbutton  . ";
-}
-.profileheading {
-    grid-area: profileheading;
-    font-family: "Nunito";
-    font-size: 1.3rem;
-    flex-wrap: nowrap;
-}
-.postbutton {
-    grid-area: postbutton;
-    background-color: #02C396;
-    padding: 0.8rem;
-    /* margin: 1rem; */
-    color: #FFFFFF;
-    font-family: "Roboto";
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    text-align: center;
-    border-radius: 0.25rem;
-}
-.profile-pic  {
-    grid-area: profile-pic;
-    transform: translateY(-0.6rem);
-    /* background-color: pink */
-}
-.profile-pic img {
-    width: 6rem;
-    height: 6rem;
-    border-radius: 50%;
-}
-.form {
-    grid-area: form;
-    /* background-color: powderblue; */
-}
-.assumption-heading {
-    grid-area: assumption-heading;
-    display: grid;
-    grid-template-columns: 25fr 50fr 25fr;
-    grid-template-areas: "myassumption . allassumption";
-}
-.myassumption {
-    grid-area: myassumption;
-    font-family: "Nunito";
-    padding-left: 2rem;
-}
-.allassumption {
-    grid-area: allassumption;
-    color: #02C396;
-    font-family: "Nunito";
-}
-
-.assumptions {
-    
-    display: grid;
-    grid-template-columns: 1fr;
-    flex-flow: row;
-    grid-template-rows: min-content;
-    grid-column-gap: 2rem;
-    margin: 0 1rem;
-    /* background-color: salmon; */
-}
-@media only screen and (max-width: 800px) {
-    .assumptions {
-    
-        display: grid;
-        grid-template-rows: repeat(3, 1fr);
-        grid-template-columns: 1fr;
-        height: 30vh;
-        grid-row-gap: 2rem;
-        margin: 0 2rem;
-        /* display: flex;
-        justify-content: center;
-        align-items: center; */
-    }
-    
-    .assumption-heading {
-        grid-area: assumption-heading;
-        display: grid;
-        grid-template-columns: 30fr 40fr 30fr;      
-        grid-template-areas: "myassumption . allassumption";
-    }
-    .profile-image-heading {
-        grid-area: profile-image-heading;
-        display: grid;
-        /* height: 7.5vh; */
-        grid-template-rows: 10vh;
-        /* background-color: slateblue; */
-        grid-template-columns: 47fr 10fr 23fr 15fr 5fr;
-        grid-template-areas: ". profileheading . postbutton .  ";
-    }
+    grid-template-columns: 47fr 10fr 23fr 15fr 5fr;
+    grid-template-areas: ". profileheading . postbutton .  ";
+  }
 }
 @media only screen and (max-width: 650px) {
-    .postbutton {
-        display: none;
-    }
-    .assumption-heading {
-        grid-area: assumption-heading;
-        display: grid;
-        grid-template-columns: 38fr 24fr 38fr;      
-        grid-template-areas: "myassumption . allassumption";
-    }
-    .postbtnicon {
-        width: 70px;
+  .postbutton {
+    display: none;
+  }
+  .assumption-heading {
+    grid-area: assumption-heading;
+    display: grid;
+    grid-template-columns: 38fr 24fr 38fr;
+    grid-template-areas: "myassumption . allassumption";
+  }
+  .postbtnicon {
+    width: 70px;
     height: 70px;
-    background: #02C396;
+    background: #02c396;
     border-radius: 50%;
     position: fixed;
     left: calc(100% - 90px);
-    top: calc(100% - 90px); 
+    top: calc(100% - 90px);
     color: white;
     cursor: pointer;
-    }
+  }
 }
-@media only screen and (max-width:400px) {
-.assumption-heading {
+@media only screen and (max-width: 400px) {
+  .assumption-heading {
     grid-area: assumption-heading;
     display: grid;
-    grid-template-columns: 45fr 10fr 45fr;      
+    grid-template-columns: 45fr 10fr 45fr;
     grid-template-areas: "myassumption . allassumption";
-}
-.profile-image-heading {
+  }
+  .profile-image-heading {
     grid-area: profile-image-heading;
     display: grid;
     /* height: 7.5vh; */
@@ -160,5 +180,5 @@
     /* background-color: slateblue; */
     grid-template-columns: 40fr 20fr 20fr repeat(2, 10fr);
     grid-template-areas: ". profileheading . postbutton  . ";
-}
+  }
 }
