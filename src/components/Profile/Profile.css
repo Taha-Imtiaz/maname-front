@@ -6,6 +6,7 @@
       1fr
     );
   grid-template-areas: ". profile  .";
+  /* background-color: red; */
 }
 .profile {
   grid-area: profile;
@@ -77,7 +78,7 @@
 }
 .camera-icon {
   grid-area: icon;
-  transform: translateX(1.2rem);
+  transform: translateX(1rem);
 }
 .profile-pic img {
   width: 6rem;
@@ -113,6 +114,11 @@
   grid-column-gap: 2rem;
   margin: 0 1rem;
   /* background-color: salmon; */
+}
+@media only screen and (max-width:1400px) {
+  .camera-icon {
+transform: translate3d(1rem,1rem,0);
+  }
 }
 @media only screen and (max-width: 800px) {
   .assumptions {

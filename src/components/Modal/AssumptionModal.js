@@ -24,7 +24,7 @@ class AssumptionModal extends Component {
     backdrop: true,
     credit: {
       support: this.props.support === true ? true : false,
-      count: "",
+      count: 0,
     },
     creditError: false,
   };
@@ -55,7 +55,9 @@ class AssumptionModal extends Component {
       ...otherProps
     } = this.props;
     var { credit } = this.state;
+    credit.count = parseInt(credit.count)
     console.log(credit);
+    console.log(assumption)
 
     // console.log( assumption.credits.map((creditValue) => creditValue.reactor.credits)
     if (credit.count > userCredits) {
@@ -83,19 +85,21 @@ class AssumptionModal extends Component {
       };
       addReact(addReactObj).then((res) => {
         console.log(res);
-        getUserAssumptions(addReactObj.reactor)
-          .then((res) => {
-            handleUpdatedCount(credit.count);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        handleUpdatedCount(credit.count);
+        // getUserAssumptions(addReactObj.reactor)
+        //   .then((res) => {
+          
+        //   })
+        //   .catch((error) => {
+        //     console.log(error);
+        //   });
 
         this.props.onHide();
       });
+
     }
 
-    // console.log(addReactObj)
+    console.log(addReactObj)
   };
   handleFormInput = (value) => {
     console.log("function called");
@@ -154,7 +158,7 @@ class AssumptionModal extends Component {
               <Form.Group controlId="formBasicEmail">
                 {/* <Form.Label>Email address</Form.Label> */}
                 <Form.Control
-                  type="text"
+                  type="number"
                   placeholder="Enter credits"
                   name="count"
                   value={count}
