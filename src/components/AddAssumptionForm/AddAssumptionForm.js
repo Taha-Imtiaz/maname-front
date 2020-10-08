@@ -19,6 +19,7 @@ class AddAssumptionForm extends Component {
       titleCharacterLimit: "",
       descriptionCharacterLimit: "",
       detailDescriptionCharacterLimit: "",
+      creditCountLimit : "",
       tagInput: "",
       CreditCount: 1,
       inputFocus: true,
@@ -67,6 +68,16 @@ class AddAssumptionForm extends Component {
       this.setState({
         detailDescriptionCharacterLimit: "",
       });
+    }
+    if(name === "CreditCount" && value > 1000) {
+      this.setState({
+        creditCountLimit: "Credit value is not greater than 1000"
+      })
+    }
+   else if(name === "CreditCount" && value.length <= 1000) {
+      this.setState({
+        creditCountLimit: ""
+      })
     }
     this.setState({
       [name]: value,
@@ -129,11 +140,13 @@ class AddAssumptionForm extends Component {
       titleCharacterLimit,
       descriptionCharacterLimit,
       detailDescriptionCharacterLimit,
+      creditCountLimit
     } = this.state;
     if (
       titleCharacterLimit === "" &&
       descriptionCharacterLimit === "" &&
-      detailDescriptionCharacterLimit === ""
+      detailDescriptionCharacterLimit === "" &&
+      creditCountLimit === ""
     ) {
       return true;
     } else {
@@ -183,6 +196,7 @@ class AddAssumptionForm extends Component {
       titleCharacterLimit,
       descriptionCharacterLimit,
       detailDescriptionCharacterLimit,
+      creditCountLimit,
       inputFocus,
     } = this.state;
     // console.log(credits);
@@ -231,6 +245,15 @@ class AddAssumptionForm extends Component {
                   // maxLength = {100}
                   required
                 />
+                {CreditCount !== "" && creditCountLimit !== "" ? (
+                  <div
+                    class="alert alert-danger"
+                    role="alert"
+                    style={{ fontSize: "1.5rem" }}
+                  >
+                    {creditCountLimit}
+                  </div>
+                ) : null}
               </div>
               <div className="form-group">
                 <label>Description</label>
