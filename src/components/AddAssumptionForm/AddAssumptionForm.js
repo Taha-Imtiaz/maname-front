@@ -19,7 +19,7 @@ class AddAssumptionForm extends Component {
       titleCharacterLimit: "",
       descriptionCharacterLimit: "",
       detailDescriptionCharacterLimit: "",
-      creditCountLimit : "",
+      creditCountLimit: "",
       tagInput: "",
       CreditCount: 1,
       inputFocus: true,
@@ -33,7 +33,7 @@ class AddAssumptionForm extends Component {
           },
         },
       ],
-      
+
       // Credits: credits[0].credit.count,
       owner: sessionObj._id,
     };
@@ -69,12 +69,12 @@ class AddAssumptionForm extends Component {
         detailDescriptionCharacterLimit: "",
       });
     }
-    if(name === "CreditCount" && value > 1000) {
+    if (name === "CreditCount" && (value > 1000 || value > sessionObj.credits || value <= 0)) {
       this.setState({
-        creditCountLimit: "Credit value is not greater than 1000"
+        creditCountLimit: "Please enter valid credits"
       })
     }
-   else if(name === "CreditCount" && value.length <= 1000) {
+    else if (name === "CreditCount" && value.length <= 1000) {
       this.setState({
         creditCountLimit: ""
       })
@@ -149,7 +149,10 @@ class AddAssumptionForm extends Component {
       creditCountLimit === ""
     ) {
       return true;
-    } else {
+    } else if (this.state.credits[0].credit > sessionObj.credits) {
+
+    }
+    else {
       return false;
     }
   };
@@ -257,7 +260,7 @@ class AddAssumptionForm extends Component {
               </div>
               <div className="form-group">
                 <label>Description</label>
-                <textarea rows = "4.5"
+                <textarea rows="4.5"
                   type="text"
                   className="form-control"
                   placeholder="Description"
@@ -280,7 +283,7 @@ class AddAssumptionForm extends Component {
               </div>
               <div className="form-group">
                 <label>Detail Description</label>
-                <textarea rows = "4.5"
+                <textarea rows="4.5"
                   type="text"
                   className="form-control"
                   placeholder="Detail Description"
@@ -292,15 +295,15 @@ class AddAssumptionForm extends Component {
                   required
                 />
                 {detailDescription !== "" &&
-                detailDescriptionCharacterLimit !== "" ? (
-                  <div
-                    class="alert alert-danger"
-                    role="alert"
-                    style={{ fontSize: "1.5rem" }}
-                  >
-                    {detailDescriptionCharacterLimit}
-                  </div>
-                ) : null}
+                  detailDescriptionCharacterLimit !== "" ? (
+                    <div
+                      class="alert alert-danger"
+                      role="alert"
+                      style={{ fontSize: "1.5rem" }}
+                    >
+                      {detailDescriptionCharacterLimit}
+                    </div>
+                  ) : null}
               </div>
               <div className="form-group">
                 <label>Labels</label>
